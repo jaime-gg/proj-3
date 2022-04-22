@@ -45,7 +45,7 @@ const resolvers = {
 
             return { token, user };
         },
-        
+
         addOrder: async (parent, { books }, context) => {
             console.log(context);
             if (context.user) {
@@ -72,6 +72,24 @@ const resolvers = {
 
             return await Book.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
         },
+
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+
+            if (!user) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+
+            const correctPw = await user.isCorrectPassword(password);
+
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+
+            const token = signToken(user);
+
+            return { token, user };
+        }
     }
 };
 
