@@ -45,6 +45,7 @@ const resolvers = {
 
             return { token, user };
         },
+        
         addOrder: async (parent, { books }, context) => {
             console.log(context);
             if (context.user) {
@@ -56,6 +57,20 @@ const resolvers = {
             }
 
             throw new AuthenticationError('Not logged in');
+        },
+
+        updateUser: async (parent, args, context) => {
+            if (context.user) {
+                return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+            }
+
+            throw new AuthenticationError('Not logged in');
+        },
+
+        updateBook: async (parent, { _id, quantity }) => {
+            const decrement = Math.abs(quantity) * -1;
+
+            return await Book.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
         },
     }
 };
