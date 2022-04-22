@@ -6,14 +6,14 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        product: async (parent, { _id }) => {
-            return await Product.findById(_id).populate('category');
+        book: async (parent, { _id }) => {
+            return await Book.findById(_id).populate('category');
         },
 
         user: async (parent, args, context) => {
             if (context.user) {
                 const user = await User.findById(context.user._id).populate({
-                    path: 'orders.products',
+                    path: 'orders.books',
                     populate: 'category'
                 });
 
@@ -28,7 +28,7 @@ const resolvers = {
         order: async (parent, { _id }, context) => {
             if (context.user) {
                 const user = await User.findById(context.user._id).populate({
-                    path: 'orders.products',
+                    path: 'orders.books',
                     // populate: 'category'
                 });
 
@@ -39,7 +39,24 @@ const resolvers = {
         },
     },
     Mutation: {
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
+            const token = signToken(user);
 
+            return { token, user };
+        },
+        addOrder: async (parent, { books }, context) => {
+            console.log(context);
+            if (context.user) {
+                const order = new Order({ books });
+
+                await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+
+                return order;
+            }
+
+            throw new AuthenticationError('Not logged in');
+        },
     }
 };
 
