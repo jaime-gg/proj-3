@@ -6,15 +6,54 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
+        filters: async () => {
+            return await Filter.find();
+        },
+
+        products: async (parent, { filter, name }) => {
+            const params = {};
+
+            if (filter) {
+                params.filter = filter;
+            }
+
+            if (name) {
+                params.name = {
+                    $regex: name
+                };
+            }
+
+            return await Product.find(params).populate('filter');
+        },
+
+        product: async (parent, { _id }) => {
+            return await Product.findById(_id).populate('filter');
+        },
+        
+        user: async (parent, args, context) => {
+            if (context.user) {
+                const user = await User.findById(context.user._id).populate({
+                    path: 'orders.products',
+                    populate: 'filter'
+                });
+
+                user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+
+                return user;
+            }
+
+            throw new AuthenticationError('Not logged in');
+        },
+
         book: async (parent, { _id }) => {
-            return await Book.findById(_id).populate('category');
+            return await Book.findById(_id).populate('filter');
         },
 
         user: async (parent, args, context) => {
             if (context.user) {
                 const user = await User.findById(context.user._id).populate({
                     path: 'orders.books',
-                    populate: 'category'
+                    populate: 'filter'
                 });
 
                 user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
@@ -29,7 +68,7 @@ const resolvers = {
             if (context.user) {
                 const user = await User.findById(context.user._id).populate({
                     path: 'orders.books',
-                    // populate: 'category'
+                    populate: 'filter'
                 });
 
                 return user.orders.id(_id);
