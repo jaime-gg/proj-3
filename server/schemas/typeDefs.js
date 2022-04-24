@@ -8,6 +8,7 @@ const typeDefs = gql`
         image: String
         quantity: Int
         price: Float
+        filter: Filter
     }
 
     type User {
@@ -24,6 +25,11 @@ const typeDefs = gql`
         books: [Book]
     }
 
+    type Filter {
+        _id: ID
+        name: String
+    }
+
     type Checkout {
         session: ID
     }
@@ -38,7 +44,9 @@ const typeDefs = gql`
         book(_id: ID!): Book
         user: User
         order(_id: ID!): Order
-        checkout(books: [ID]!): Checkout 
+        checkout(books: [ID]!): Checkout
+        filters: [Filter]
+        books(filter: ID, name: String): [Book] 
     }
 
     type Mutation {
