@@ -10,7 +10,7 @@ const resolvers = {
             return await Filter.find();
         },
 
-        products: async (parent, { filter, name }) => {
+        books: async (parent, { filter, name }) => {
             const params = {};
 
             if (filter) {
@@ -23,17 +23,17 @@ const resolvers = {
                 };
             }
 
-            return await Product.find(params).populate('filter');
+            return await Book.find(params).populate('filter');
         },
 
-        product: async (parent, { _id }) => {
-            return await Product.findById(_id).populate('filter');
+        book: async (parent, { _id }) => {
+            return await Book.findById(_id).populate('filter');
         },
-        
+
         user: async (parent, args, context) => {
             if (context.user) {
                 const user = await User.findById(context.user._id).populate({
-                    path: 'orders.products',
+                    path: 'orders.books',
                     populate: 'filter'
                 });
 
