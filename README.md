@@ -13,7 +13,7 @@ We have been given the task to develop a e-commerce website for a small yet high
 
 ## Installation Instructions
 
-- Launch via Horoku
+- Launch via Heroku
 
 - Clone repository, download dependencies, generate database using Schema.sql, seed the database with the provided seed files, and start the server using node.
 
@@ -33,7 +33,7 @@ We have been given the task to develop a e-commerce website for a small yet high
 
 ## APIs
 
--
+- 
 
 ## MVP (Minimum Viable Product)
 
