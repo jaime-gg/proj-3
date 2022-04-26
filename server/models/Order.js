@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const orderSchema = new Schema({
-    products: [
+    books: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Product'
+            ref: 'Book'
         }
     ], 
     purchaseDate: {
