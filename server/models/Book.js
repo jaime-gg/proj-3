@@ -25,11 +25,11 @@ const bookSchema = new Schema({
         default: 0
     },
     // MAY WANT FOR FILTER COMPONENT
-    // category: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Category',
-    //     required: true
-    // }
+    filter: {
+        type: Schema.Types.ObjectId,
+        ref: 'Filter',
+        required: true
+    }
 });
 
 const Book = mongoose.model('Book', bookSchema);
