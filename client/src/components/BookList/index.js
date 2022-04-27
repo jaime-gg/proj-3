@@ -48,6 +48,8 @@ function BookList() {
             <BookItem
               key={book._id}
               _id={book._id}
+              author={book.author}
+              year={book.year}
               image={book.image}
               name={book.name}
               price={book.price}
