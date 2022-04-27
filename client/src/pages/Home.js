@@ -4,14 +4,11 @@ import CategoryMenu from "../components/FilterMenu";
 import Cart from "../components/Cart";
 
 const Home = () => {
-    return (
-      <div className="">
-        <FilterMenu />
-        <BookList />
-        <Cart />
-      </div>
-    );
-  };
-  
-  export default Home;
-  
+  return (
+    <div className="">
+      <BookList />
+    </div>
+  );
+};
+
+export default Home;
