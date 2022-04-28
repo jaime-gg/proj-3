@@ -30,7 +30,7 @@ function Success(){
   
     return (
       <div>
-        // fun swirling text and animations that state order was successful
+  {/* // fun swirling text and animations that state order was successful */}
         
       </div>
     );
