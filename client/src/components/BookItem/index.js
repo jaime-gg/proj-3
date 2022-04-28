@@ -29,7 +29,7 @@ function BookItem(item) {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...item, purchaseQuantity: 1 },
+        book: { ...item, purchaseQuantity: 1 },
       });
       idbPromise("cart", "put", { ...item, purchaseQuantity: 1 });
     }
@@ -37,7 +37,7 @@ function BookItem(item) {
 
   return (
     <div className="bookItem">
-      <Link to={`/products/${_id}`}>
+      <Link to={`/books/${_id}`}>
         <div className="bookBorder">
           <img alt={name} src={`/images/${image}`} />
         </div>
