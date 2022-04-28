@@ -20,7 +20,7 @@ db.once("open", async () => {
   // ================================================================================================
 
   await Book.deleteMany();
-  const books = await Book.insertMany([
+  const Books = await Book.insertMany([
     {
       name: "Death of a Stray Cat",
       author: "Jean Potts",
