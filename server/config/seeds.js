@@ -2,6 +2,7 @@ const db = require("./connection");
 // IMPORT AND CREATE SEEDS FOR RESPECTIVE MODALS
 const { User, Book, Filter } = require("../models");
 
+
 db.once("open", async () => {
   await Filter.deleteMany();
   const filters = await Filter.insertMany([
