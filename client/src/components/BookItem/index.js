@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { pluralize } from "../../utils/helpers";
+//import { pluralize } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_TO_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
+import { ADD_TO_CART, ADD_MULTIPLE_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 function BookItem(item) {
   const [state, dispatch] = useStoreContext();
 
-  const { image, description, price, name, quantity, filter } = item;
+  const { image, description, price, name, quantity, filter, _id } = item;
 
   const { cart } = state;
 
@@ -50,3 +50,5 @@ function BookItem(item) {
     </div>
   );
 }
+
+export default BookItem; 

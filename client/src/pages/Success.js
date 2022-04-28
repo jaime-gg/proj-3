@@ -35,3 +35,5 @@ function Success(){
       </div>
     );
 }
+
+export default Success;
