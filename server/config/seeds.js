@@ -99,7 +99,7 @@ db.once("open", async () => {
       quantity: 2,
     },
     {
-      name: "Contrary Imagintations: A Psychologocial Stody of the English Schoolboy",
+      name: "Contrary Imagintations: A Psychologocial Study of the English Schoolboy",
       author: "Liam Hudson",
       year: "1967",
       description:

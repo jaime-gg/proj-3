@@ -1,6 +1,6 @@
 import React from "react";
 import BookList from "../components/BookList";
-import CategoryMenu from "../components/FilterMenu";
+import FilterMenu from "../components/FilterMenu";
 import Cart from "../components/Cart";
 
 const Home = () => {

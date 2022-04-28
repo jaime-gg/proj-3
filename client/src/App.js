@@ -13,6 +13,8 @@ import { setContext } from "@apollo/client/link/context";
 
  import Home from './pages/Home';
  import Nav from './components/Nav';
+ import FilterMenu from './components/FilterMenu';
+ import NoMatch from './components/NoMatch';
 
 const httpLink = createHttpLink({
   uri: "/graphql",

@@ -73,7 +73,7 @@ const Cart = () => {
   return (
     <div className="cart">
 
-        // only for mobile
+        {/* // only for mobile */}
       <div className="close" onClick={toggleCart}>
         [close]
       </div>
