@@ -59,7 +59,7 @@ function BookList() {
           ))}
         </div>
       ) : (
-        <h3>You haven't added any books yet!</h3>
+        <h3>Looks like we are out of stock. Try again later !</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
     </div>

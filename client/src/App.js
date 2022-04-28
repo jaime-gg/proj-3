@@ -45,7 +45,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route component={NoMatch} />
             </Switch>
-            <Cart />
+            
           </StoreProvider>
         </div>
       </Router>
