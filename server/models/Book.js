@@ -9,7 +9,7 @@ const bookSchema = new Schema({
     trim: true,
   },
   year: {
-    type: Number,
+    type: String,
     required: true,
   },
   author: {
@@ -34,11 +34,11 @@ const bookSchema = new Schema({
     default: 0,
   },
   // MAY WANT FOR FILTER COMPONENT
-  filter: {
+  filter: [{
     type: Schema.Types.ObjectId,
     ref: "Filter",
     required: true,
-  },
+  }],
 });
 
 const Book = mongoose.model("Book", bookSchema);

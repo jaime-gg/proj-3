@@ -27,7 +27,7 @@ db.once("open", async () => {
       description:
         "When a woman's body is discovered at her lover's villa, the police discover a trail of lovers - all of whom have a reason to wish her dead.",
       image: "stray-1962.jpg",
-      filter: [filters[4]._id, filters[5]._id],
+      filter: [filters[3]._id, filters[4]._id],
       price: 35,
       quantity: 2,
     },
@@ -38,7 +38,7 @@ db.once("open", async () => {
       description:
         '"It is impossible to exaggerate the importance of this book to industry and to artists because it is in a class by itself. Nothing has appeared in our time on this subject which can compare with it, either in scope or in clarity of thought." - The Listener Sir Herbert Edward Read, DSO, MC was an English anarchist poet, and critic of literature and art.',
       image: "art-1961.jpeg",
-      filter: [filters[3]._id, filters[5]._id, filters[7]._id],
+      filter: [filters[2]._id, filters[4]._id, filters[6]._id],
       price: 37,
       quantity: 1,
     },
@@ -48,7 +48,7 @@ db.once("open", async () => {
       year: "1962",
       description: `Before he authored the dystopian 1984 and the allegorical Animal Farm, George Orwell was a journalist, reporting on England's working class — an investigation that led him to examine democratic socialism. In the 1930s, the Left Book Club, a socialist group in England, sent George Orwell to investigate the poverty and mass unemployment in the industrial north of England. Once there, he went beyond the requests of the book club, to investigate the employed as well. Orwell chose to live as the coal miners did — sleeping in foul lodgings, subsisting on a meager diet, struggling to feed a family on a dismal wage, and going down into the hellish, backbreaking mines. What Orwell saw clarified his feelings about socialism, and in The Road to Wigan Pier, he pointedly tells why socialism, the only remedy to the shocking conditions he had witnessed, repelled "so many normal decent people."`,
       image: "road-1962.jpeg",
-      filter: [filters[3]._id, filters[7]._id],
+      filter: [filters[2]._id, filters[6]._id],
       price: 20,
       quantity: 4,
     },
@@ -59,7 +59,7 @@ db.once("open", async () => {
       description:
         "An unusually quiet day for Inspector Maigret at the Quai des Orfèvres is disturbed by a visit from mild-mannered toy salesman Xavier Manton. Maigret is taken aback by Manton's revelation that he suspects his wife of plotting to poison him. And when he receives a visit from Madame Manton expressing her own grave concerns later that day, he finds himself deeply conflicted, unsure of whom to trust. Maigret heeds the advice of his seniors and begins investigating the couple—and with every turn, new complications arise. When the case comes to a boil and a body is discovered, everyone, including Maigret, is shocked.\nMaigret's Doubts is an engrossing mystery of marriage and deceit that forces the reader to question whether our brilliant inspector may be fallible after all. ",
       image: "maigret-1962.jpeg",
-      filter: [filters[4]._id, filters[6]._id], 
+      filter: [filters[3]._id, filters[5]._id], 
       price: 47,
       quantity: 1,
     },
@@ -70,10 +70,11 @@ db.once("open", async () => {
       description:
         "This classic textbook provides a concise introduction to basic concepts of acoustics and digital speech processing that are important to linguists, phoneticians, and speech scientists. Assuming no background in physics or mathematics, Ladefoged explains concepts that must be understood in using modern laboratory techniques for acoustic analysis, including resonances of the vocal tract and the relation of formants to different cavities; digital speech processing and computer storage of sound waves.",
       image: "acoustic-1962.jpeg",
-      filter: [filters[1]._id, filters[3]._id,filters[8]._id],
+      filter: [filters[0]._id, filters[2]._id, filters[7]._id],
       price: 33,
       quantity: 3,
     },
+    ///
     {
       name: "The Soft Talkers",
       author: "Margaret Millar",
@@ -103,7 +104,7 @@ db.once("open", async () => {
       description:
         "Why does one boy become an arts specialist and his neighbor a scientist? Why do some pupils use their brains effectively and others not? Do we pay enough attention to personality in assessing ability? In this controversial study Dr. Liam Hudson, argues that personality counts for as much as ability in the student's choice of subject. He distinguishes between two types of personality, the scientific converger, and the artistic imaginative diverger, and examines examples of each in depth. He then speculates on the nature of original thought and the ways in which intellectual and personal qualities interact.",
       image: "imaginations-1967.jpg",
-      filter: [filters[3]._id, filters[8]._id],
+      filter: [filters[3]._id, filters[7]._id],
       price: 45,
       quantity: 3,
     },
@@ -135,7 +136,7 @@ db.once("open", async () => {
       description:
         "Via writing, teaching, and facilitating the processes of cooperation, John Keltner devoted his life to furthering peace, understanding, and collaboration through interpersonal communication. \nKeltner's first book on interpersonal communication, Interpersonal Speech Communication, Elements and Structures, appeared in 1969, two years before the wave of interpersonal texts began. His books found use worldwide, some as university texts.",
       image: "speech-1970.jpeg",
-      filter: [filters[1]._id,filters[3]._id,filters[8]._id],
+      filter: [filters[1]._id,filters[3]._id,filters[7]._id],
       price: 35,
       quantity: 1,
     },
@@ -177,7 +178,7 @@ db.once("open", async () => {
       year: "1973",
       description: `"Personality: A Scientific Approach is intended for undergraduate courses in personality. It is meant to aquaint the student with what is known about personality, and what has been attempted in the scientific study of personality." - An excerpt from the text.`,
       image: "personality-1973.jpeg",
-      filter: [filters[1]._id,filters[3]._id,filters[8]._id],
+      filter: [filters[1]._id,filters[3]._id,filters[7]._id],
       price: 45,
       quantity: 1,
     },
@@ -188,7 +189,7 @@ db.once("open", async () => {
       description:
         "This book has been written to acquaint readers with some of the enormous range of experiences associated with chronic illness.",
       image: "illness-1975.jpeg",
-      filter: [filters[3]._id,filters[8]._id],
+      filter: [filters[3]._id,filters[7]._id],
       price: 38,
       quantity: 2,
     },
@@ -210,7 +211,7 @@ db.once("open", async () => {
       description:
         "The human body, though an enormously complex system in its total function, can be seen to be made up of more elementary subsystems.",
       image: "phys-1975.jpg",
-      filter: [filters[1]._id,filters[3]._id,filters[8]._id],
+      filter: [filters[1]._id,filters[3]._id,filters[7]._id],
       price: 135,
       quantity: 1,
     },
@@ -221,7 +222,7 @@ db.once("open", async () => {
       description:
         "This is a highly readable, popular exposition of the fourth dimension and the structure of the universe. A remarkable pictorial discussion of the curved space-time we call home, it achieves even greater impact through the use of 141 excellent illustrations. This is the first sustained visual account of many important topics in relativity theory that up till now have only been treated separately.",
       image: "fourth-dimension-1977.jpeg",
-      filter: [filters[3]._id,filters[8]._id,],
+      filter: [filters[3]._id,filters[7]._id,],
       price: 800,
       quantity: 1,
     },
@@ -231,7 +232,7 @@ db.once("open", async () => {
       year: "1980",
       description: `"(This) is a book about how to read, understand, and evaluate research that someone else has done." - An excerpt from the text.`,
       image: "research-1980.jpeg",
-      filter: [filters[1]._id,filters[3]._id,filters[8]._id],
+      filter: [filters[1]._id,filters[3]._id,filters[7]._id],
       price: 25,
       quantity: 3,
     },
