@@ -9,7 +9,6 @@ const StoreProvider = ({value = [], ...props}) => {
     const [state, dispatch] = useBookReducer({
         books: [],
         cart: [],
-        cartOpen: false,
         filters: [],
         currentFilter: ''
     })

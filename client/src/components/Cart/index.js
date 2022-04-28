@@ -60,23 +60,13 @@ const Cart = () => {
     });
   }
 
-  if (!state.cartOpen) {
-    return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
-        </span>
-      </div>
-    );
-  }
-
   return (
     <div className="cart col set-width">
 
         {/* // only for mobile */}
-      <div className="close" onClick={toggleCart}>
+      {/* <div className="close" onClick={toggleCart}>
         [close]
-      </div>
+      </div> */}
       
       <h2>Shopping Cart</h2>
       {state.cart.length ? (

@@ -11,12 +11,13 @@
     --dark: #232323;
     --light: #fafafa;
     --error: rgb(228, 46, 1);
-    --spacing-one: calc(1rem * 0.5);
-    --spacing-two: calc(1rem);
+    /* --spacing-one: calc(1rem * 0.5);
+    --spacing-two: calc(1rem); */
 }
 
 * {
     box-sizing: border-box;
+    font-family: 'Courier Prime', monospace;
 }
 
 /* ========================================================================================== */
@@ -24,25 +25,45 @@
 html,
 body {
     min-height: 100%;
-    background-color: var(--background);
+
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Courier Prime', monospace;
     font-weight: 400;
     line-height: 1.5;
     font-size: 16px;
     color: var(--dark);
 }
 
+.page-bg {
+    background-color: var(--background);
+    width: 100vw;
+    height: 100vh;
+}
+
 /* ========================================================================================== */
 
-.about {
+.com-con {
+    border-style: solid;
+    border-color: var(--dark);
+    padding: 10px; 
+}
+/* .about {
     background-color: blueviolet;
 }
 
 .content {
     background-color: cadetblue;
+} */
+
+.side-menu {
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-page {
+    /* width: 100vw;
+    height: 100vh; */
 }

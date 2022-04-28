@@ -45,9 +45,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="row">
+        <div className="row h-100 page-bg">
           <StoreProvider>
-            <div className="side-menu col-3">
+            <div className="side-menu col-3 com-con">
               <Nav />
               <FilterMenu />
             </div>

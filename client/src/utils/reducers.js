@@ -6,11 +6,10 @@ import {
     UPDATE_CURRENT_FILTER,
 
     ADD_TO_CART,
-     ADD_MULTIPLE_TO_CART,
+    ADD_MULTIPLE_TO_CART,
     REMOVE_FROM_CART,
     UPDATE_CART_QUANTITY,
     CLEAR_CART,
-    TOGGLE_CART
 } from './actions';
 
 export const reducer = (state, action) => {
@@ -38,7 +37,6 @@ export const reducer = (state, action) => {
         case ADD_TO_CART:
             return {
                 ...state,
-                cartOpen: true,
                 cart: [...state.cart, action.book]
             }
 
@@ -55,14 +53,12 @@ export const reducer = (state, action) => {
 
             return {
                 ...state,
-                cartOpen: newState.length > 0,
                 cart: newState
             };
 
         case UPDATE_CART_QUANTITY:
             return {
                 ...state,
-                cartOpen: true,
                 cart: state.cart.map(book => {
                     if (action._id === book._id) {
                         book.purchaseQuantity = action.purchaseQuantity;
@@ -73,15 +69,8 @@ export const reducer = (state, action) => {
 
         case CLEAR_CART: 
             return {
-                ...state,
-                cartOpen: false, 
-                cart: []
-            }
-
-        case TOGGLE_CART: 
-            return {
                 ...state, 
-                cartOpen: !state.cartOpen
+                cart: []
             }
 
         // SET THIS AS DEFAULT
