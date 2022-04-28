@@ -3,12 +3,13 @@
     src: url('./assets/fonts/Grotesk.otf');
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
 :root {
-    --primary: #232F3E;
-    --secondary: #F3A847;
-    --tertiary: #B12704;
+    --primary: #723636;
+    --background: #F4E7DA;
+    --dark: #232323;
     --light: #fafafa;
-    --dark: #272f32;
     --error: rgb(228, 46, 1);
     --spacing-one: calc(1rem * 0.5);
     --spacing-two: calc(1rem);
@@ -18,17 +19,30 @@
     box-sizing: border-box;
 }
 
+/* ========================================================================================== */
+
 html,
 body {
     min-height: 100%;
+    background-color: var(--background);
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Karla', sans-serif;
+    font-family: 'Courier Prime', monospace;
     font-weight: 400;
     line-height: 1.5;
     font-size: 16px;
     color: var(--dark);
+}
+
+/* ========================================================================================== */
+
+.about {
+    background-color: blueviolet;
+}
+
+.content {
+    background-color: cadetblue;
 }

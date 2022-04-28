@@ -45,20 +45,23 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div className="row">
           <StoreProvider>
-            <Nav />
-            <FilterMenu />
-            <Switch>
-            <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/orderHistory" component={OrderHistory} />
-              <Route exact path="/products/:id" component={Detail} />
-              <Route exact path="/success" component={Success} />
-              <Route component={NoMatch} />
-            </Switch>
-            
+            <div className="side-menu col-3">
+              <Nav />
+              <FilterMenu />
+            </div>
+            <div className="main-page col-9">
+              <Switch>
+              <Route exact path="/" component={Home} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/orderHistory" component={OrderHistory} />
+                <Route exact path="/products/:id" component={Detail} />
+                <Route exact path="/success" component={Success} />
+                <Route component={NoMatch} />
+              </Switch>
+            </div>
           </StoreProvider>
         </div>
       </Router>

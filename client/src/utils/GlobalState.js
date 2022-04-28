@@ -13,7 +13,7 @@ const StoreProvider = ({value = [], ...props}) => {
         filters: [],
         currentFilter: ''
     })
-    console.log(state) // use this in order to confirm it works
+    // console.log(state) // use this in order to confirm it works
     return <Provider value={[state, dispatch]} {...props} />
 }
 

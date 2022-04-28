@@ -71,7 +71,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart">
+    <div className="cart col set-width">
 
         {/* // only for mobile */}
       <div className="close" onClick={toggleCart}>
