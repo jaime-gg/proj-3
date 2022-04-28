@@ -53,7 +53,7 @@ function BookList() {
               image={book.image}
               name={book.name}
               price={book.price}
-              description={description}
+              description={book.description}
               quantity={book.quantity}
             />
           ))}
@@ -61,7 +61,7 @@ function BookList() {
       ) : (
         <h3>Looks like we are out of stock. Try again later !</h3>
       )}
-      {loading ? <img src={spinner} alt="loading" /> : null}
+      {loading ? <p>working on it !</p> : null}
     </div>
   );
 }
