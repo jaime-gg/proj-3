@@ -41,9 +41,9 @@ function BookList() {
   }
 
   return (
-    <div className="col-8">
+    <div className=" col-8 ">
       {state.books.length ? (
-        <div className="">
+        <div className="book-list d-flex flex-row justify-content-around flex-wrap">
           {filterBooks().map((book) => (
             <BookItem
               key={book._id}

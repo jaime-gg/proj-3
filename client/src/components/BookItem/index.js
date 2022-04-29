@@ -36,7 +36,7 @@ function BookItem(item) {
   };
 
   return (
-    <div className="bookItem">
+    <article className="col-3 bookItem">
       <Link to={`/books/${_id}`}>
         <div className="bookBorder">
           <img alt={name} src={`../../assets/${image}`} />
@@ -46,7 +46,7 @@ function BookItem(item) {
         </div>
       </Link>
       <button onClick={addToCart}>Add to cart</button>
-    </div>
+    </article>
   );
 }
 
