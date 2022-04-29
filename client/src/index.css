@@ -1,4 +1,7 @@
-
+@font-face {
+    font-family: Grotesk, sans-serif;
+    src: url('./assets/fonts/Grotesk.otf');
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
