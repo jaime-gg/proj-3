@@ -41,7 +41,7 @@ function BookList() {
   }
 
   return (
-    <div className="col">
+    <div className="col-8">
       {state.books.length ? (
         <div className="">
           {filterBooks().map((book) => (

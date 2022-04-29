@@ -3,16 +3,17 @@ import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
 import FilterMenu from "../FilterMenu";
+import './style.css'
 
 function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="">
-          <li className="">
+        <ul className="under">
+          <li>
             <Link to="/orderHistory">Order History</Link>
           </li>
-          <li className="">
+          <li>
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
@@ -21,11 +22,11 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="">
-          <li className="">
+        <ul className="under">
+          <li className="spacing">
             <Link to="/signup">Signup</Link>
           </li>
-          <li className="">
+          <li className="spacing">
             <Link to="/login">Login</Link>
           </li>
         </ul>
@@ -35,15 +36,15 @@ function Nav() {
 
   return (
     <header className="flex-row px-1">
-      <h1>
+      <h1 className="logo">
         <Link to="/">
           TEXTOS ANTIGUOS 
         </Link>
       </h1>
 
       <nav>
-        {showNavigation()}
-        <FilterMenu />
+          {showNavigation()}
+          <FilterMenu />
       </nav>
 
     </header>

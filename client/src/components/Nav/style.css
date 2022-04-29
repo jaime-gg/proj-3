@@ -1,0 +1,51 @@
+@font-face {
+    font-family: Grotesk;
+    src: url('../../assets/fonts/Grotesk.otf') format("opentype");
+}
+
+.logo {
+    font-family: Grotesk;
+    margin-bottom: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.filter-btn {
+    border: none;
+    background: none;
+}
+
+.filter-btn:focus {
+    border: none;
+    outline: none;
+    color: var(--primary);
+}
+
+.filter-btn:focus{
+    outline:none !important;
+}
+
+.spacing {
+    padding: 1px 6px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.under::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: var(--dark);
+    bottom: 10px;
+    left: 0;
+}

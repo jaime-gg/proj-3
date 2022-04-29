@@ -40,16 +40,21 @@ function FilterMenu() {
 
   return(
     <div>
-      {filters.map((item) => (
-        <button
-          key={item._id}
-          onClick={() => {
-            handleClick(item._id);
-          }}
-        >
-          {item.name}
-        </button>
-      ))}
+      <ul>
+        {filters.map((item) => (
+          <li>
+            <button
+              className="filter-btn"
+              key={item._id}
+              onClick={() => {
+                handleClick(item._id);
+              }}
+            >
+              {item.name}
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

@@ -1,7 +1,4 @@
-@font-face {
-    font-family: Grotesk, sans-serif;
-    src: url('./assets/fonts/Grotesk.otf');
-}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
@@ -17,7 +14,6 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'Courier Prime', monospace;
 }
 
 /* ========================================================================================== */
@@ -41,6 +37,12 @@ body {
     background-color: var(--background);
     width: 100vw;
     height: 100vh;
+    font-family: 'Courier Prime', monospace;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark);
 }
 
 /* ========================================================================================== */
@@ -59,7 +61,6 @@ body {
 } */
 
 .side-menu {
-    width: 100vw;
     height: 100vh;
 }
 
