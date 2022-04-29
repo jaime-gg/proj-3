@@ -20,7 +20,6 @@ import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success'
 
 import Nav from './components/Nav';
-import FilterMenu from "./components/FilterMenu";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -49,7 +48,6 @@ function App() {
           <StoreProvider>
             <div className="side-menu col-3 com-con">
               <Nav />
-              <FilterMenu />
             </div>
             <div className="main-page col-9">
               <Switch>

@@ -2,6 +2,8 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 
+import FilterMenu from "../FilterMenu";
+
 function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
@@ -35,14 +37,15 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">
-            🛍️
-          </span>
-          -Shop-Shop
+          TEXTOS ANTIGUOS 
         </Link>
       </h1>
 
-      <nav>{showNavigation()}</nav>
+      <nav>
+        {showNavigation()}
+        <FilterMenu />
+      </nav>
+
     </header>
   );
 }
