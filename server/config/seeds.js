@@ -168,7 +168,7 @@ db.once("open", async () => {
       author: "Carl W. Condit",
       year: "1973",
       description: "No description available at this time.",
-      image: "chicago-1972.jpeg",
+      image: "chicago-1973.jpeg",
       filter: [filters[1]._id,filters[3]._id,filters[7]._id,filters[5]._id],
       price: 17,
       quantity: 10,

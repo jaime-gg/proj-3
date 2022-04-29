@@ -68,3 +68,19 @@ a {
     /* width: 100vw;
     height: 100vh; */
 }
+
+.bookBorder>img{
+object-fit:cover;
+width:100%;
+
+}
+
+.bookBorder{
+    border:1px solid var(--dark);
+    flex: 0 a;
+    padding: 30px;
+}
+
+.book-list{
+    gap: 10px 20px;
+}
