@@ -49,3 +49,29 @@ export const ADD_USER = gql`
         }
     }
 `;
+
+
+export const ADD_BOOK = gql`
+    mutation addBook(
+        $name: String!
+        $author: String!
+        $description: String!
+        $price: Float!
+        $quantity: Int!
+        $image: string
+
+    ){
+        addBook(
+            name: $name
+            author: $author
+            description: $description
+            price: $price
+            quantity: $quantity
+            image: $image
+        ) {
+            book {
+                _id
+            }
+        }
+    }
+`;

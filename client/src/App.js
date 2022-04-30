@@ -18,6 +18,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success'
+import Admin from './pages/Admin'
 
 import Nav from './components/Nav';
 
@@ -57,6 +58,7 @@ function App() {
                 <Route exact path="/orderHistory" component={OrderHistory} />
                 <Route exact path="/books/:id" component={Detail} />
                 <Route exact path="/success" component={Success} />
+                <Route exact path="/admin" component={Admin} />
                 <Route component={NoMatch} />
               </Switch>
             </div>

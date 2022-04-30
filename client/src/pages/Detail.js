@@ -13,43 +13,43 @@ import { QUERY_BOOKS } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
 
 function Detail() {
-    const [state, dispatch] = useStoreContext();
-    const { id } = useParams();
-  
-    const [currentBook, setCurrentBook] = useState({});
-  
-    const { loading, data } = useQuery(QUERY_BOOKS);
-  
-    const { books, cart } = state;
-  
-    useEffect(() => {
-      // already in global store
-      if (books.length) {
-        setCurrentBook(books.find((book) => book._id === id));
-      }
-      // retrieved from server
-      else if (data) {
+  const [state, dispatch] = useStoreContext();
+  const { id } = useParams();
+
+  const [currentBook, setCurrentBook] = useState({});
+
+  const { loading, data } = useQuery(QUERY_BOOKS);
+
+  const { books, cart } = state;
+
+  useEffect(() => {
+    // already in global store
+    if (books.length) {
+      setCurrentBook(books.find((book) => book._id === id));
+    }
+    // retrieved from server
+    else if (data) {
+      dispatch({
+        type: UPDATE_BOOKS,
+        books: data.books,
+      });
+
+      data.books.forEach((book) => {
+        idbPromise('books', 'put', book);
+      });
+    }
+    // get cache from idb
+    else if (!loading) {
+      idbPromise('books', 'get').then((indexedBooks) => {
         dispatch({
           type: UPDATE_BOOKS,
-          books: data.books,
+          books: indexedBooks,
         });
-  
-        data.books.forEach((book) => {
-          idbPromise('books', 'put', book);
-        });
-      }
-      // get cache from idb
-      else if (!loading) {
-        idbPromise('books', 'get').then((indexedBooks) => {
-          dispatch({
-            type: UPDATE_BOOKS,
-            books: indexedBooks,
-          });
-        });
-      }
-    }, [books, data, loading, dispatch, id]);
-  
-    const addToCart = () => {
+      });
+    }
+  }, [books, data, loading, dispatch, id]);
+
+  const addToCart = () => {
     //  const itemInCart = cart.find((cartItem) => cartItem._id === id);
     //   if (itemInCart) {
     //     dispatch({
@@ -62,54 +62,54 @@ function Detail() {
     //       purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
     //     });
     //   } else {
-        dispatch({
-          type: ADD_TO_CART,
-          book: { ...currentBook, purchaseQuantity: 1 },
-        });
-        idbPromise('cart', 'put', { ...currentBook, purchaseQuantity: 1 });
-//}
-    };
-  
-    const removeFromCart = () => {
-      dispatch({
-        type: REMOVE_FROM_CART,
-        _id: currentBook._id,
-      });
-  
-      idbPromise('cart', 'delete', { ...currentBook });
-    };
-  
-    return (
-      <>
-        {currentBook && cart ? (
-          <div className="">
-            <Link to="/">← Back to Books</Link>
-  
-            <h2>{currentBook.name}</h2>
-  
-            <p>{currentBook.description}</p>
-  
-            <p>
-              <strong>Price:</strong>${currentBook.price}{' '}
-              <button onClick={addToCart}>Add to Cart</button>
-              <button
-                disabled={!cart.find((p) => p._id === currentBook._id)}
-                onClick={removeFromCart}
-              >
-                Remove from Cart
-              </button>
-            </p>
-  
-            <img
-              src={`/images/${currentBook.image}`}
-              alt={currentBook.name}
-            />
-          </div>
-        ) : null}
-    {loading ? <p>One second !</p> : null}
-        <Cart />
-      </>
-    );
-  }
-  
-  export default Detail;
+    dispatch({
+      type: ADD_TO_CART,
+      book: { ...currentBook, purchaseQuantity: 1 },
+    });
+    idbPromise('cart', 'put', { ...currentBook, purchaseQuantity: 1 });
+    //}
+  };
+
+  const removeFromCart = () => {
+    dispatch({
+      type: REMOVE_FROM_CART,
+      _id: currentBook._id,
+    });
+
+    idbPromise('cart', 'delete', { ...currentBook });
+  };
+
+  return (
+    <div>
+      {currentBook && cart ? (
+        <div className="">
+          <Link to="/">← Back to Books</Link>
+
+          <h2>{currentBook.name}</h2>
+
+          <p>{currentBook.description}</p>
+
+          <p>
+            <strong>Price:</strong>${currentBook.price}{' '}
+            <button onClick={addToCart}>Add to Cart</button>
+            <button
+              disabled={!cart.find((p) => p._id === currentBook._id)}
+              onClick={removeFromCart}
+            >
+              Remove from Cart
+            </button>
+          </p>
+
+          <img
+            src={`/images/${currentBook.image}`}
+            alt={currentBook.name}
+          />
+        </div>
+      ) : null}
+      {loading ? <p>One second !</p> : null}
+      <Cart />
+    </div>
+  );
+}
+
+export default Detail;

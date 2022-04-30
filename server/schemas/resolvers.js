@@ -85,6 +85,12 @@ const resolvers = {
             return { token, user };
         },
 
+        addBook: async (parent, args) => {
+            const book = await Book.create(args);
+
+            return { book };
+        },
+
         addOrder: async (parent, { books }, context) => {
             console.log(context);
             if (context.user) {

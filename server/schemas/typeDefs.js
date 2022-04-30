@@ -4,6 +4,7 @@ const typeDefs = gql`
     type Book {
         _id: ID
         name: String
+        author: String
         description: String
         image: String
         quantity: Int
@@ -51,6 +52,7 @@ const typeDefs = gql`
 
     type Mutation {
         addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+        addBook(name: String!, author: String!, description: String!, quantity: Int!, price: Float!, image: String): Book
         addOrder(books: [ID]!): Order
         updateUser(firstName: String, lastName: String, email: String, password: String): User
         updateBook(_id: ID!, quantity: Int!): Book
