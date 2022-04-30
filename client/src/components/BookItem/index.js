@@ -39,7 +39,7 @@ function BookItem(item) {
     <article className="col-3 bookItem">
       <Link to={`/books/${_id}`}>
         <div className="bookBorder">
-          <img alt={name} src={`/images/${image}`} />
+          <img alt={name} src={`../../assets/${image}`} />
         </div>
         <div className="info">
           <p className="price">${price}</p>
