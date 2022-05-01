@@ -46,7 +46,7 @@ function BookItem(item) {
         </div>
        
       </Link>
-      <button onClick={addToCart}>+ cart</button>
+      <button className="button" onClick={addToCart}>+ cart</button>
     </article>
   );
 }
