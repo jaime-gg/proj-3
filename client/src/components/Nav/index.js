@@ -35,7 +35,7 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1">
+    <header className="flex-row p-3">
       <h1 className="logo">
         <Link to="/">
           TEXTOS ANTIGUOS 

@@ -50,11 +50,7 @@ a {
 
 /* ========================================================================================== */
 
-.com-con {
-    /* border-style: solid;
-    border-color: var(--dark); */
-    padding: 10px; 
-}
+
 .about {
     border-top: 3px solid var(--dark);
     padding:10px;
@@ -77,17 +73,21 @@ width:100%;
 }
 
 .bookBorder{
-    border:1px solid var(--dark);
+    border:2px solid var(--dark);
+    border-radius: 2px;
     flex: 0 a;
     padding: 30px;
     position: relative;
 }
 
+
+
 .book-list{
     gap: 10px 20px;
     overflow: scroll;
-    height: 73vh;
+   height: 75vh;
     overflow-x: hidden; 
+    padding: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -110,14 +110,20 @@ width:100%;
 
 
 
-  .bookItem>button{
+.button{
       background-color: #232323;
       color:var(--background);
       border-radius: 10px;
       margin:10px;
       font-size:90%;
       font-family: Grotesk;
+      border: 0;
+      padding: 0.25rem 0.5rem;
      }
+
+     .bookItem>button:hover{
+        background-color: var(--primary);
+       }
 
   .info{
     /* display:none; */
@@ -127,7 +133,7 @@ width:100%;
     right: 0%;
     width:100%;
     height:100%;
-    
+    background:#723636be;
   }
 
   .price{
@@ -144,6 +150,16 @@ width:100%;
  .bookBorder:hover >.info{
     /* display:block; */
     visibility: visible;
-    background:#2323233f
+    
   }
 
+.singleBorder>img{
+    object-fit:cover;
+    width:100%;
+}
+
+.coverImg{
+    border:2px solid var(--dark);
+    border-radius: 2px;
+    padding:20%;
+}

@@ -49,7 +49,7 @@ function App() {
             <div className="side-menu col-3 com-con">
               <Nav />
             </div>
-            <div className="main-page col-9">
+            <div className=" main-page col-9">
               <Switch>
               <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Login} />
