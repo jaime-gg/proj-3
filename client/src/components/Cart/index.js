@@ -77,7 +77,7 @@ const Cart = () => {
             ))}
           </div>
 {/* //////////////////////////////////////////////////////////////// */}
-          <div className="cartInfo ">
+          <div className="cartInfo p-3 ">
             <strong>Total: ${calculateTotal()} USD</strong>
 
             {Auth.loggedIn() ? (
