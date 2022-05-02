@@ -54,3 +54,14 @@ li {
     left: 0;
 }
 
+.credit{
+    font-family: Grotesk;
+
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+
+.credit>p>a{
+    font-size: smaller;
+}

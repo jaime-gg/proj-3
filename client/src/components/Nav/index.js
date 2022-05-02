@@ -48,7 +48,11 @@ function Nav() {
           {showNavigation()}
           <FilterMenu />
       </nav>
+<div className="credit px-3">
+  <p>Developed By<br></br>
+ <a href="https://github.com/ditazan">Dita Z.</a> & <a href="https://github.com/jaime-gg">Jaime G.G.</a></p>
 
+</div>
     </header>
   );
 }
