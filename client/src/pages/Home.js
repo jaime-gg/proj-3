@@ -6,7 +6,7 @@ import Cart from "../components/Cart";
 const Home = () => {
   return (
     <div className="h-100">
-      <div className="content row h-75 com-con">
+      <div className="content row h-75 ">
         <BookList />
         <Cart />
       </div>
