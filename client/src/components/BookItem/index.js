@@ -37,6 +37,7 @@ function BookItem(item) {
 
   return (
     <article className="col-md-6 col-lg-3 text-center bookItem">
+      
       <Link to={`/books/${_id}`}>
         <div className="bookBorder">
           <img alt={name} src={`../../images/${image}`} /> 
@@ -44,8 +45,8 @@ function BookItem(item) {
           <h2 className="price">${price}</h2>
         </div>
         </div>
-       
       </Link>
+
       <button className="button" onClick={addToCart}>+ cart</button>
     </article>
   );

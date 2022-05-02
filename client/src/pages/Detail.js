@@ -4,7 +4,11 @@ import { useQuery } from "@apollo/client";
 
 import Cart from "../components/Cart";
 import { useStoreContext } from "../utils/GlobalState";
-import { REMOVE_FROM_CART, ADD_TO_CART, UPDATE_BOOKS , UPDATE_CART_QUANTITY} from "../utils/actions";
+import {
+  ADD_TO_CART,
+  UPDATE_BOOKS,
+  UPDATE_CART_QUANTITY,
+} from "../utils/actions";
 import { QUERY_BOOKS } from "../utils/queries";
 import { idbPromise } from "../utils/helpers";
 
@@ -46,33 +50,24 @@ function Detail() {
   }, [books, data, loading, dispatch, id]);
 
   const addToCart = () => {
-     const itemInCart = cart.find((cartItem) => cartItem._id === id);
-      if (itemInCart) {
-        dispatch({
-          type: UPDATE_CART_QUANTITY,
-          _id: id,
-          purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-        });
-        idbPromise('cart', 'put', {
-          ...itemInCart,
-          purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-        });
-      } else {
-    dispatch({
-      type: ADD_TO_CART,
-      book: { ...currentBook, purchaseQuantity: 1 },
-    });
-    idbPromise("cart", "put", { ...currentBook, purchaseQuantity: 1 });
+    const itemInCart = cart.find((cartItem) => cartItem._id === id);
+    if (itemInCart) {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: id,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+      });
+      idbPromise("cart", "put", {
+        ...itemInCart,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+      });
+    } else {
+      dispatch({
+        type: ADD_TO_CART,
+        book: { ...currentBook, purchaseQuantity: 1 },
+      });
+      idbPromise("cart", "put", { ...currentBook, purchaseQuantity: 1 });
     }
-  };
-
-  const removeFromCart = () => {
-    dispatch({
-      type: REMOVE_FROM_CART,
-      _id: currentBook._id,
-    });
-
-    idbPromise("cart", "delete", { ...currentBook });
   };
 
   return (
@@ -94,20 +89,36 @@ function Detail() {
             <div className="p-3 text-center">
               <h2 className="">{currentBook.name}</h2>
               <h3>${currentBook.price}</h3>
-              <div className="single">
-              <p>{currentBook.description}</p>
-</div>
-              <button className="button" onClick={addToCart}>Add to Cart</button>
-             
+
+              <p className="description ">{currentBook.description}</p>
+
+              <button className="button" onClick={addToCart}>
+                Add to Cart
+              </button>
+              <div></div>
+              {currentBook.quantity > 0 ? (
+                <p className=" quantity">{currentBook.quantity} left !</p>
+              ) : (
+                <p className="quantity">sold out !</p>
+              )}
             </div>
           </div>
         </div>
       ) : null}
       {loading ? <p>One second !</p> : null}
       <div className="singleCart">
-      <Cart /></div>
+        <Cart />
+      </div>
       <div className="about row h-25">
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis velit diam, malesuada nec luctus non, lobortis id mi. Mauris eget vulputate velit. Praesent sit amet neque ac elit mollis tristique. Pellentesque vulputate, mi ut ornare rutrum, nulla leo aliquet dolor, ac maximus nisl erat eget tellus. Aliquam bibendum mauris eget suscipit fringilla.  </p>
+        <p>
+          {" "}
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis velit
+          diam, malesuada nec luctus non, lobortis id mi. Mauris eget vulputate
+          velit. Praesent sit amet neque ac elit mollis tristique. Pellentesque
+          vulputate, mi ut ornare rutrum, nulla leo aliquet dolor, ac maximus
+          nisl erat eget tellus. Aliquam bibendum mauris eget suscipit
+          fringilla.{" "}
+        </p>
       </div>
     </>
   );

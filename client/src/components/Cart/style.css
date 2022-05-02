@@ -19,7 +19,8 @@ background:var(--background);
     overflow-x: hidden;
     height: 50vh;
     padding: 10px;
-    border: 1px solid var(--dark);
+    border-top: 1px solid var(--dark);
+    border-bottom: 1px solid var(--dark);
     border-radius: 10px;
     /* height:100%; */
 
