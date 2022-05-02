@@ -38,7 +38,7 @@ function Login(props) {
           <div className="">
             <label htmlFor="email">Email address:</label>
             <input
-              placeholder="please provide your email address"
+              placeholder="name@email.com"
               name="email"
               type="email"
               id="email"

@@ -5,8 +5,11 @@
 
 .logo {
     font-family: Grotesk;
-    font-size: 200%;
+    border-bottom: 3px solid var(--dark);
+    
 }
+
+
 
 a {
     text-decoration: none;
@@ -44,9 +47,10 @@ li {
 .under::after {
     content: "";
     display: block;
-    width: 80px;
+    width: 80%;
     height: 2px;
     background: var(--dark);
     bottom: 10px;
     left: 0;
 }
+

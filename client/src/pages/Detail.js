@@ -78,10 +78,10 @@ function Detail() {
   return (
     <>
       {currentBook && cart ? (
-        <div className="px-3 col-8 ">
+        <div className="px-3 col-8  ">
           <Link to="/">← Back to Books</Link>
           <div
-            className="singleBook d-flex justify-content-center
+            className="d-flex justify-content-center align-items-center singleBook
           "
           >
             <div className="p-3 singleBorder">
@@ -91,11 +91,12 @@ function Detail() {
                 alt={currentBook.name}
               />
             </div>
-            <div className="p-3">
-              <h2>{currentBook.name}</h2>
-              <h2>${currentBook.price}</h2>
+            <div className="p-3 text-center">
+              <h2 className="">{currentBook.name}</h2>
+              <h3>${currentBook.price}</h3>
+              <div className="single">
               <p>{currentBook.description}</p>
-
+</div>
               <button className="button" onClick={addToCart}>Add to Cart</button>
              
             </div>
@@ -103,7 +104,11 @@ function Detail() {
         </div>
       ) : null}
       {loading ? <p>One second !</p> : null}
-      <Cart />
+      <div className="singleCart">
+      <Cart /></div>
+      <div className="about row h-25">
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis velit diam, malesuada nec luctus non, lobortis id mi. Mauris eget vulputate velit. Praesent sit amet neque ac elit mollis tristique. Pellentesque vulputate, mi ut ornare rutrum, nulla leo aliquet dolor, ac maximus nisl erat eget tellus. Aliquam bibendum mauris eget suscipit fringilla.  </p>
+      </div>
     </>
   );
 }

@@ -24,7 +24,8 @@
 html,
 body {
     min-height: 100%;
-
+    min-width: 100%;
+overflow: hidden;
 }
 
 body {
@@ -54,11 +55,15 @@ a {
 .about {
     border-top: 3px solid var(--dark);
     padding:10px;
+    position: absolute;
+    bottom:0;
+    background-color: var(--background);
 }
 
 .side-menu {
     height: 100vh;
     border-right: 3px solid var(--dark);
+    padding:0;
 }
 
 .main-page {
@@ -92,6 +97,7 @@ width:100%;
 
 ::-webkit-scrollbar {
     width: 7px;
+    
   }
 
   ::-webkit-scrollbar-track {
@@ -153,6 +159,22 @@ width:100%;
     
   }
 
+.singleBook{
+    height:75vh;
+}
+
+.singleBook>div>h2{
+    font-size: larger;
+}
+
+.singleBook>div>h3{
+    font-size: large;
+}
+
+.singleBook> div{
+    flex:1;
+}
+
 .singleBorder>img{
     object-fit:cover;
     width:100%;
@@ -163,3 +185,24 @@ width:100%;
     border-radius: 2px;
     padding:20%;
 }
+
+.singleCart{
+    position: absolute;
+    top:0;
+    right:0;
+}
+
+.text-center>h2, h3{
+    text-align: left;
+}
+
+
+
+  .single{
+    font-size: small;
+    overflow-y:auto;
+    overflow-x: hidden; 
+height: 20vh;
+    line-height: 1.2;
+    text-align: left;
+  }
