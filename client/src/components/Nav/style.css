@@ -48,7 +48,7 @@ li {
     content: "";
     display: block;
     width: 80%;
-    height: 2px;
+    height: 1px;
     background: var(--dark);
     bottom: 10px;
     left: 0;

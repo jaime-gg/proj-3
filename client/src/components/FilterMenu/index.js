@@ -40,7 +40,7 @@ function FilterMenu() {
   };
 
   return(
-    <div>
+    <div className="underNav">
       <ul>
         <li><Link to="/">All</Link></li>
         {filters.map((item) => (

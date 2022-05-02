@@ -7,7 +7,7 @@
 
 .cart {
     border-left: 3px solid var(--dark);
-background:var(--background);
+/* background:var(--background); */
     height: 75vh;
 
 }

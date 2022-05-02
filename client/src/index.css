@@ -27,6 +27,7 @@ a:hover {
 
 html,
 body {
+  
     min-height: 100%;
     min-width: 100%;
     overflow: hidden;
@@ -43,8 +44,9 @@ body {
 
 .page-bg {
     background-color: var(--background);
-    width: 100vw;
-    height: 100vh;
+    background-image: url('./assets/paper-texture.png');
+    width: 101vw;
+    height: 101vh;
     font-family: 'Courier Prime', monospace;
 }
 
@@ -58,10 +60,11 @@ a {
 
 .about {
     border-top: 3px solid var(--dark);
-    padding: 10px;
+    
     position: absolute;
     bottom: 0;
-    background-color: var(--background);
+    font-size: smaller;
+    /* background-color: var(--background); */
 }
 
 .side-menu {
@@ -97,11 +100,11 @@ a {
 
 
 .book-list {
-    gap: 10px 20px;
+    gap: 5% 1%;
     overflow: scroll;
     height: 75vh;
     overflow-x: hidden;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 ::-webkit-scrollbar {
@@ -207,6 +210,7 @@ a {
     position: absolute;
     top: 0;
     right: 0;
+    overflow-y:auto;
 }
 
 .text-center>h2,
@@ -219,6 +223,11 @@ h3 {
 
     margin:0;
    
+}
+
+.singleBook{
+    overflow-y:auto;
+    
 }
 
 .description {
@@ -235,3 +244,10 @@ text-align: left;
     color: var(--error);
     text-align: center;
 }
+
+.back{
+    position:absolute;
+    top: 1%;
+    left:0;
+}
+
