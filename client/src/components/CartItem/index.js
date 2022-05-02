@@ -63,8 +63,8 @@ const CartItem = ({ item }) => {
       </div>
 
       <div className="itemInfo">
-        <div>
-         <strong>{item.name}</strong> , ${item.price}
+        <div className="">
+         <strong>{item.name}</strong>, ${item.price}
         </div>
         <div className="d-flex justify-content-end align-items-center">
         <span>X</span>
