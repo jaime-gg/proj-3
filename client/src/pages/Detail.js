@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 
 import Cart from "../components/Cart";
 import { useStoreContext } from "../utils/GlobalState";
-import { REMOVE_FROM_CART, ADD_TO_CART, UPDATE_BOOKS } from "../utils/actions";
+import { REMOVE_FROM_CART, ADD_TO_CART, UPDATE_BOOKS , UPDATE_CART_QUANTITY} from "../utils/actions";
 import { QUERY_BOOKS } from "../utils/queries";
 import { idbPromise } from "../utils/helpers";
 
@@ -46,24 +46,24 @@ function Detail() {
   }, [books, data, loading, dispatch, id]);
 
   const addToCart = () => {
-    //  const itemInCart = cart.find((cartItem) => cartItem._id === id);
-    //   if (itemInCart) {
-    //     dispatch({
-    //       type: UPDATE_CART_QUANTITY,
-    //       _id: id,
-    //       purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-    //     });
-    //     idbPromise('cart', 'put', {
-    //       ...itemInCart,
-    //       purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-    //     });
-    //   } else {
+     const itemInCart = cart.find((cartItem) => cartItem._id === id);
+      if (itemInCart) {
+        dispatch({
+          type: UPDATE_CART_QUANTITY,
+          _id: id,
+          purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        });
+        idbPromise('cart', 'put', {
+          ...itemInCart,
+          purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        });
+      } else {
     dispatch({
       type: ADD_TO_CART,
       book: { ...currentBook, purchaseQuantity: 1 },
     });
     idbPromise("cart", "put", { ...currentBook, purchaseQuantity: 1 });
-    //}
+    }
   };
 
   const removeFromCart = () => {

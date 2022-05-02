@@ -7,7 +7,7 @@
 
 :root {
     --primary: #723636;
-    --background: #F4E7DA;
+    --background: #f4e8dc;
     --dark: #232323;
     --light: #fafafa;
     --error: rgb(228, 46, 1);
@@ -17,6 +17,10 @@
 
 * {
     box-sizing: border-box;
+}
+
+a:hover{
+    color: var(--primary);
 }
 
 /* ========================================================================================== */

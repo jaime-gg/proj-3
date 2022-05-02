@@ -49,6 +49,10 @@ border-bottom: 1px solid var(--dark);
     padding: 10px;
 }
 
+.itemInfo>div>span{
+    font-size: small;
+}
+
 input {
     width: 20%;
     border: none;
