@@ -18,6 +18,7 @@ function BookList() {
       dispatch({
         type: UPDATE_BOOKS,
         books: data.books,
+        displayBooks: data.books
       });
       data.books.forEach((book) => {
         idbPromise("books", "put", book);
@@ -27,6 +28,7 @@ function BookList() {
         dispatch({
           type: UPDATE_BOOKS,
           books: books,
+          displayBooks: books
         });
       });
     }
@@ -34,15 +36,15 @@ function BookList() {
 
   function filterBooks() {
     if (!currentFilter) {
-      return state.books;
+      return state.displayBooks;
     }
 
-    return state.books.filter((book) => book.filter_id === currentFilter);
+    return state.books.filter((book) => book.filter._id === currentFilter);
   }
 
   return (
     <div className="px-3 col-8 ">
-      {state.books.length ? (
+      {state.displayBooks.length ? (
         <div className="book-list d-flex flex-row justify-content-around align-items-start flex-wrap p-5">
           {filterBooks().map((book) => (
             <BookItem

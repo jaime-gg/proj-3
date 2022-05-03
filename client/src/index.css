@@ -101,7 +101,7 @@ a {
 
 .book-list {
     gap: 5% 1%;
-    overflow: scroll;
+    overflow-y: auto;
     height: 75vh;
     overflow-x: hidden;
     /* padding: 10px; */
@@ -272,4 +272,12 @@ text-align: left;
 
 .singleBook::-webkit-scrollbar-button {
     visibility: hidden;
+}
+
+/* //////////////////////////////////////////////////// */
+/* LOGIN + SIGN UP */
+
+.userForm>form>div>input{
+    flex:5, 1;
+    border:1px solid red;
 }
