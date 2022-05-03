@@ -2,13 +2,11 @@ const db = require("./connection");
 // IMPORT AND CREATE SEEDS FOR RESPECTIVE MODALS
 const { User, Book, Filter } = require("../models");
 
-
 db.once("open", async () => {
   await Filter.deleteMany();
   const filters = await Filter.insertMany([
     { name: "Non-Fiction" },
     { name: "Fiction" },
-    
   ]);
   console.log("filters have been seeded");
 
@@ -55,7 +53,7 @@ db.once("open", async () => {
       description:
         "An unusually quiet day for Inspector Maigret at the Quai des Orfèvres is disturbed by a visit from mild-mannered toy salesman Xavier Manton. Maigret is taken aback by Manton's revelation that he suspects his wife of plotting to poison him. And when he receives a visit from Madame Manton expressing her own grave concerns later that day, he finds himself deeply conflicted, unsure of whom to trust. Maigret heeds the advice of his seniors and begins investigating the couple—and with every turn, new complications arise. When the case comes to a boil and a body is discovered, everyone, including Maigret, is shocked.\nMaigret's Doubts is an engrossing mystery of marriage and deceit that forces the reader to question whether our brilliant inspector may be fallible after all. ",
       image: "maigret-1962.jpeg",
-      filter: filters[1]._id, 
+      filter: filters[1]._id,
       price: 47,
       quantity: 1,
     },
@@ -238,12 +236,22 @@ db.once("open", async () => {
   // ================================================================================================
 
   await User.deleteMany();
-  await User.create({
-    firstName: "John",
-    lastName: "Smith",
-    email: "vendor@mail.com",
-    password: "password123"
-  });
+  const Users = await User.insertMany([
+    {
+      firstName: "Jorge",
+      lastName: "Borges",
+      email: "vendor@mail.com",
+      password: "password123",
+    },
+    {
+      firstName: "Gioconda",
+      lastName: "Belli",
+      email: "customer@mail.com",
+      password: "password123",
+      orders: [{ books: [{_id:'626f06cb6016e07ac870339e'}, {_id:'626f06cb6016e07ac870339c'}], purchaseDate: {} }, 
+      { books: [{_id:'626f06cb6016e07ac87033a0'}], purchaseDate: {} }],
+    },
+  ]);
   console.log("users seeded");
 
   process.exit();

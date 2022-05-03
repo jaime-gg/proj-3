@@ -18,7 +18,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         books: [...action.books],
-        displayBooks: [...action.displayBooks]
+        displayBooks: [...action.displayBooks],
       };
 
     case UPDATE_FILTERS:

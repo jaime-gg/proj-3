@@ -32,6 +32,7 @@ function Detail() {
       dispatch({
         type: UPDATE_BOOKS,
         books: data.books,
+        displayBooks: data.books,
       });
 
       data.books.forEach((book) => {
@@ -51,7 +52,8 @@ function Detail() {
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
-    if (itemInCart) {
+    const stock = currentBook.quantity;
+    if (itemInCart && itemInCart.purchaseQuantity < stock) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: id,
@@ -61,7 +63,7 @@ function Detail() {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
-    } else {
+    } else if (!itemInCart) {
       dispatch({
         type: ADD_TO_CART,
         book: { ...currentBook, purchaseQuantity: 1 },
