@@ -5,6 +5,7 @@ import {
     UPDATE_FILTERS,
     UPDATE_CURRENT_FILTER,
 
+    ADD_BOOK,
     ADD_TO_CART,
     ADD_MULTIPLE_TO_CART,
     REMOVE_FROM_CART,
@@ -14,6 +15,11 @@ import {
 
 export const reducer = (state, action) => {
     switch (action.type) {
+        case ADD_BOOK: 
+            return {
+                ...state,
+                books: [...action.books]
+            }
         case UPDATE_BOOKS:
             return {
                 ...state,

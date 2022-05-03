@@ -1,5 +1,5 @@
 export const UPDATE_BOOKS = "UPDATE_BOOKS";
-// export const ADD_BOOK = "ADD_BOOK"
+export const ADD_BOOK = "ADD_BOOK"
 
 export const UPDATE_FILTERS = "UPDATE_FILTERS";
 export const UPDATE_CURRENT_FILTER = "UPDATE_CURRENT_FILTER"; 
