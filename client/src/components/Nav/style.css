@@ -65,3 +65,10 @@ li {
 .credit>p>a{
     font-size: smaller;
 }
+
+.underNav{
+    display:flex;
+    flex-flow: column;
+   /* / justify-content:flex-start; */
+    align-items:flex-start ;
+}

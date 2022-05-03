@@ -11,8 +11,6 @@ function FilterMenu() {
 
   const { filters, books } = state;
 
-  
-
   const { loading, data: filterData } = useQuery(QUERY_FILTERS);
 
   useEffect(() => {
@@ -39,7 +37,6 @@ function FilterMenu() {
       type: UPDATE_CURRENT_FILTER,
       currentFilter: id,
     });
-  
 
     console.log(id);
   };
@@ -48,6 +45,14 @@ function FilterMenu() {
     <div className="underNav">
       {/* <ul> */}
       {/* <li><Link to="/">All</Link></li> */}
+      <button
+        className="filter-btn"
+        onClick={() => {
+          handleClick();
+        }}
+      >
+        All
+      </button>
       {filters.map((item) => (
         // <li>
         <button
