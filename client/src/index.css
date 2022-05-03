@@ -251,3 +251,25 @@ text-align: left;
     left:0;
 }
 
+
+
+.singleBook::-webkit-scrollbar {
+    width: 7px;
+
+}
+
+.singleBook::-webkit-scrollbar-track {
+    border: 1px dashed var(--primary);
+    border-radius: 10px;
+    
+}
+
+.singleBook::-webkit-scrollbar-thumb {
+    background:#7236366e;
+    border-radius: 10px;
+    border: 1px dashed var(--primary);
+}
+
+.singleBook::-webkit-scrollbar-button {
+    visibility: hidden;
+}
