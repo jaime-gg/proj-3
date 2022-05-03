@@ -33,12 +33,14 @@ function Signup(props) {
     return (
       <div className="">
         <Link to="/login">← Go to Login</Link>
-  
-        <h2>Signup</h2>
-        <form onSubmit={handleFormSubmit}>
+  <div className="d-flex align-items-center flex-column">
+        <h2 className='d-inline'>Signup</h2>
+        <div  className="userForm d-flex justify-content-center align-items-stretch">
+        <form onSubmit={handleFormSubmit} className="">
           <div className="">
             <label htmlFor="firstName">First Name:</label>
             <input
+            className=''
               placeholder="First"
               name="firstName"
               type="firstName"
@@ -77,10 +79,11 @@ function Signup(props) {
             />
           </div>
           <div className=''>
-            <button type="submit">Submit</button>
+            <button className="button"type="submit">Submit</button>
           </div>
         </form>
       </div>
+      </div></div>
     );
   }
   
