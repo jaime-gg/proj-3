@@ -35,18 +35,24 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1 className="logo">
+    <header className="flex-row">
+      <div className="logo">
+      <h1 className="p-3">
         <Link to="/">
           TEXTOS ANTIGUOS 
         </Link>
       </h1>
+</div>
 
-      <nav>
+      <nav className="p-3">
           {showNavigation()}
           <FilterMenu />
       </nav>
+<div className="credit px-3">
+  <p>Developed By<br></br>
+ <a href="https://github.com/ditazan">Dita Z.</a> & <a href="https://github.com/jaime-gg">Jaime G.G.</a></p>
 
+</div>
     </header>
   );
 }

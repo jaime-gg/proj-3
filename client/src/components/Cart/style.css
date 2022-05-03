@@ -1,6 +1,84 @@
 /* .cart{
     background-color: aqua;
 } */
-.set-width{
+.set-width {
     width: 25vw;
+}
+
+.cart {
+    border-left: 3px solid var(--dark);
+/* background:var(--background); */
+    height: 75vh;
+
+}
+
+
+
+.books {
+    overflow-y:auto;
+    overflow-x: hidden;
+    height: 50vh;
+    padding: 10px;
+    border-top: 1px solid var(--dark);
+    border-bottom: 1px solid var(--dark);
+    border-radius: 10px;
+    /* height:100%; */
+
+}
+
+.cartInfo {
+    text-align: center;
+    justify-content: center;
+    align-items: stretch;
+    display:flex;
+    flex-flow: column;
+}
+
+.cartItem {
+border-bottom: 1px solid var(--dark);
+}
+
+.cartImg {
+    width: 100%;
+}
+
+/* //////////// */
+
+.itemImg {
+    flex: 1;
+    padding: 10px;
+}
+
+.itemInfo {
+    flex: 4;
+    padding: 10px;
+}
+
+.itemInfo>div>span{
+    font-size: small;
+}
+
+input {
+    width: 20%;
+    border: none;
+    background: none;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    border: 1px solid var(--dark);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dark);
+    border-radius: 10px;
+    
+}
+
+::-webkit-scrollbar-button {
+    visibility: hidden;
 }

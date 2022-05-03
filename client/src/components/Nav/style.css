@@ -5,8 +5,11 @@
 
 .logo {
     font-family: Grotesk;
-    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--dark);
+    
 }
+
+
 
 a {
     text-decoration: none;
@@ -16,6 +19,7 @@ a {
 .filter-btn {
     border: none;
     background: none;
+    color:var(--dark);
 }
 
 .filter-btn:focus {
@@ -43,9 +47,21 @@ li {
 .under::after {
     content: "";
     display: block;
-    width: 80px;
-    height: 2px;
+    width: 80%;
+    height: 1px;
     background: var(--dark);
     bottom: 10px;
     left: 0;
+}
+
+.credit{
+    font-family: Grotesk;
+
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+
+.credit>p>a{
+    font-size: smaller;
 }

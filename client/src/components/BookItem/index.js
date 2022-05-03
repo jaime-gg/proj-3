@@ -36,16 +36,18 @@ function BookItem(item) {
   };
 
   return (
-    <article className="col-3 bookItem">
+    <article className="col-md-6 col-lg-3 text-center bookItem">
+      
       <Link to={`/books/${_id}`}>
         <div className="bookBorder">
-          <img alt={name} src={`../../assets/${image}`} />
+          <img alt={name} src={`../../images/${image}`} /> 
+          <div className="info">
+          <h2 className="price">${price}</h2>
         </div>
-        <div className="info">
-          <p className="price">${price}</p>
         </div>
       </Link>
-      <button onClick={addToCart}>Add to cart</button>
+
+      <button className="button" onClick={addToCart}>+ cart</button>
     </article>
   );
 }

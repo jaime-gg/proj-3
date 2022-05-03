@@ -7,7 +7,7 @@
 
 :root {
     --primary: #723636;
-    --background: #F4E7DA;
+    --background: #f4e8dc;
     --dark: #232323;
     --light: #fafafa;
     --error: rgb(228, 46, 1);
@@ -19,12 +19,18 @@
     box-sizing: border-box;
 }
 
+a:hover {
+    color: var(--primary);
+}
+
 /* ========================================================================================== */
 
 html,
 body {
+  
     min-height: 100%;
-
+    min-width: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -38,8 +44,9 @@ body {
 
 .page-bg {
     background-color: var(--background);
-    width: 100vw;
-    height: 100vh;
+    background-image: url('./assets/paper-texture.png');
+    width: 101vw;
+    height: 101vh;
     font-family: 'Courier Prime', monospace;
 }
 
@@ -50,21 +57,20 @@ a {
 
 /* ========================================================================================== */
 
-.com-con {
-    border-style: solid;
-    border-color: var(--dark);
-    padding: 10px; 
-}
-/* .about {
-    background-color: blueviolet;
-}
 
-.content {
-    background-color: cadetblue;
-} */
+.about {
+    border-top: 3px solid var(--dark);
+    
+    position: absolute;
+    bottom: 0;
+    font-size: smaller;
+    /* background-color: var(--background); */
+}
 
 .side-menu {
     height: 100vh;
+    border-right: 3px solid var(--dark);
+    padding: 0;
 }
 
 .main-page {
@@ -72,18 +78,198 @@ a {
     height: 100vh; */
 }
 
-.bookBorder>img{
-object-fit:cover;
-width:100%;
+.bookBorder>img {
+    object-fit: cover;
+    width: 80%;
+    transform: translate(0, -50%);
+}
+
+
+.bookBorder {
+    border: 2px solid var(--dark);
+    border-radius: 2px;
+
+
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 70%;
+    padding-top: 70%;
+}
+
+
+
+.book-list {
+    gap: 5% 1%;
+    overflow: scroll;
+    height: 75vh;
+    overflow-x: hidden;
+    /* padding: 10px; */
+}
+
+::-webkit-scrollbar {
+    width: 7px;
 
 }
 
-.bookBorder{
-    border:1px solid var(--dark);
-    flex: 0 a;
-    padding: 30px;
+::-webkit-scrollbar-track {
+    border: 1px solid var(--dark);
+    border-radius: 10px;
 }
 
-.book-list{
-    gap: 10px 20px;
+::-webkit-scrollbar-thumb {
+    background: var(--dark);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-button {
+    visibility: hidden;
+}
+
+
+
+.button {
+    background-color: #232323;
+    color: var(--background);
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 90%;
+    font-family: Grotesk;
+    border: 0;
+    padding: 0.25rem 0.5rem;
+}
+
+.bookItem>button:hover {
+    background-color: var(--primary);
+}
+
+.info {
+    /* display:none; */
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 100%;
+    height: 100%;
+    background: #723636be;
+
+}
+
+.price {
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--light);
+    text-shadow: 2px 2px var(--dark);
+    font-family: Grotesk;
+}
+
+.bookBorder:hover>.info {
+    /* display:block; */
+    visibility: visible;
+
+}
+
+.bookBorder:hover>img {
+    /* display:block; */
+    filter: blur(4px)
+}
+
+.singleBook {
+    height: 75vh;
+}
+
+.singleBook>div>h2 {
+    font-size: larger;
+}
+
+.singleBook>div>h3 {
+    font-size: large;
+}
+
+.singleBook>div {
+    flex: 1;
+}
+
+.singleBorder>img {
+    object-fit: cover;
+    width: 100%;
+}
+
+
+
+.coverImg {
+    border: 2px solid var(--dark);
+    border-radius: 2px;
+    padding: 20%;
+}
+
+.singleCart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow-y:auto;
+}
+
+.text-center>h2,
+h3 {
+    text-align: left;
+}
+
+.singleBook>div>p {
+    font-size: small;
+
+    margin:0;
+   
+}
+
+.singleBook{
+    overflow-y:auto;
+    
+}
+
+.description {
+text-align: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 20vh;
+    line-height: 1.2;
+    padding-right: 3%;
+    /* margin-right: 3%; */
+}
+
+.quantity {
+    color: var(--error);
+    text-align: center;
+}
+
+.back{
+    position:absolute;
+    top: 1%;
+    left:0;
+}
+
+
+
+.singleBook::-webkit-scrollbar {
+    width: 7px;
+
+}
+
+.singleBook::-webkit-scrollbar-track {
+    border: 1px dashed var(--primary);
+    border-radius: 10px;
+    
+}
+
+.singleBook::-webkit-scrollbar-thumb {
+    background:#7236366e;
+    border-radius: 10px;
+    border: 1px dashed var(--primary);
+}
+
+.singleBook::-webkit-scrollbar-button {
+    visibility: hidden;
 }
