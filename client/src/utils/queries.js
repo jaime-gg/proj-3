@@ -68,3 +68,12 @@ export const QUERY_CHECKOUT = gql`
         }
     }
 `;
+
+export const QUERY_VENDOR = gql`
+    {
+        vendor {
+            _id
+            email
+        }
+    }
+`;

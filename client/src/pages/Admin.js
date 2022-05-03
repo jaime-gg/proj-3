@@ -1,11 +1,30 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
+import { QUERY_VENDOR } from '../utils/queries';
 import { ADD_BOOK } from '../utils/mutations';
 
 function Admin() {
+    
     const [formState, setFormState] = useState({ name: '', author: '', description: '', quantity: '', image: '', });
     const [addBook, { error }] = useMutation(ADD_BOOK);
+
+    const { email } = useQuery(QUERY_VENDOR);
+
+    if (!email === 'vendor@mail.com') {
+        setTimeout(() => {
+            window.location.assign('/')
+        }, 5000);
+
+        return (
+            <h4>
+                The vendor must be logged into their account to use this page!
+            </h4>
+        );
+    }
+
+
+
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();

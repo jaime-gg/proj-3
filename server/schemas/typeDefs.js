@@ -42,6 +42,7 @@ const typeDefs = gql`
 
 
     type Query {
+        vendor: User
         book(_id: ID!): Book
         user: User
         order(_id: ID!): Order

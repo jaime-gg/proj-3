@@ -37,7 +37,7 @@ function BookList() {
       return state.books;
     }
 
-    return state.books.filter((book) => book.filter_id === currentFilter);
+    return state.books.filter((book) => book.filter._id === currentFilter);
   }
 
   return (
