@@ -47,10 +47,10 @@ function App() {
       <Router>
         <div className="row h-100 page-bg">
           <StoreProvider>
-            <div className="side-menu col-3 com-con">
+            <div className="side-menu col-3 ">
               <Nav />
             </div>
-            <div className="main-page col-9">
+            <div className=" main-page col-9">
               <Switch>
               <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Login} />

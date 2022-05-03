@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { useLazyQuery } from '@apollo/client';
-import { QUERY_CHECKOUT } from '../../utils/queries';
-import { idbPromise } from '../../utils/helpers';
-import CartItem from '../CartItem';
-import Auth from '../../utils/auth';
-import { useStoreContext } from '../../utils/GlobalState';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
-import './style.css';
+import React, { useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { useLazyQuery } from "@apollo/client";
+import { QUERY_CHECKOUT } from "../../utils/queries";
+import { idbPromise } from "../../utils/helpers";
+import CartItem from "../CartItem";
+import Auth from "../../utils/auth";
+import { useStoreContext } from "../../utils/GlobalState";
+import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
+import "./style.css";
 
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -25,7 +25,7 @@ const Cart = () => {
 
   useEffect(() => {
     async function getCart() {
-      const cart = await idbPromise('cart', 'get');
+      const cart = await idbPromise("cart", "get");
       dispatch({ type: ADD_MULTIPLE_TO_CART, books: [...cart] });
     }
 
@@ -61,34 +61,35 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart col set-width">
-
-        {/* // only for mobile */}
+    <div className="cart p-3 col set-width">
+      {/* // only for mobile */}
       {/* <div className="close" onClick={toggleCart}>
         [close]
       </div> */}
-      
-      <h2>Shopping Cart</h2>
-      {state.cart.length ? (
-        <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
 
-          <div className="">
-            <strong>Total: ${calculateTotal()}</strong>
+      <h2>Cart</h2>
+      {state.cart.length ? (
+        <div className="" >
+{/* ///////////////////////////////////////////////////////////////////// */}
+          <div className="books ">
+            {state.cart.map((item) => (
+              <CartItem key={item._id} item={item} />
+            ))}
+          </div>
+{/* //////////////////////////////////////////////////////////////// */}
+          <div className="cartInfo p-3 ">
+            <strong>Total: ${calculateTotal()} USD</strong>
 
             {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
+              <button className="button"onClick={submitCheckout}>Checkout</button>
             ) : (
-              <span>(log in to check out)</span>
+              <p>(log in to check out)</p>
             )}
           </div>
+
         </div>
       ) : (
-        <h3>
-          Haven't found anything you like yet ?
-        </h3>
+        <p>Haven't found anything you like yet ?</p>
       )}
     </div>
   );

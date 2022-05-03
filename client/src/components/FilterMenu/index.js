@@ -4,6 +4,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_FILTERS, UPDATE_CURRENT_FILTER } from "../../utils/actions";
 import { QUERY_FILTERS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
+import { Link } from "react-router-dom";
 
 function FilterMenu() {
   const [state, dispatch] = useStoreContext();
@@ -39,8 +40,9 @@ function FilterMenu() {
   };
 
   return(
-    <div>
+    <div className="underNav">
       <ul>
+        <li><Link to="/">All</Link></li>
         {filters.map((item) => (
           <li>
             <button
