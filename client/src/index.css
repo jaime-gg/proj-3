@@ -425,4 +425,43 @@ input, textarea {
       text-align: center;
   }
 
- 
+ /* /////////////////// */
+ .flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+.worm {
+    display: flex;
+    align-items: center;
+    transform: perspective(1000px) rotateX(30deg);
+    transform-style: preserve-3d;
+    height: 70px;
+}
+@keyframes loading {
+    0%,100% {
+        height: 10px;
+        transform: translateZ(-20px);
+    }
+    50% {
+        height: 10px;
+        transform: translateZ(20px);
+    }
+}
+.worm .x {
+    background-color: #498000;
+    animation: loading 2s infinite;
+    width: 10px;
+    height: 0;
+    margin: -3px;
+    border-radius: 10px;
+}
+.worm .x:nth-child(2) {animation-delay: .1s;}
+.worm .x:nth-child(3) {animation-delay: .2s;}
+.worm .x:nth-child(4) {animation-delay: .3s;}
+.worm .x:nth-child(5) {animation-delay: .4s;}
+.worm .x:nth-child(6) {animation-delay: .5s;}
+.worm .x:nth-child(7) {animation-delay: .6s;}
+.worm .x:nth-child(8) {animation-delay: .7s;}
