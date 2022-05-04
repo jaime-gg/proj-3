@@ -1,8 +1,8 @@
-# Project Name
+# TEXTOS ANTIGUOS 
 
 
 ## Project Summary
-We have been given the task to develop a e-commerce website for a small yet high priced vintage book vender. Although their selection is quite limited, it is important for them to host their shop in a well organized and appealing website that allows for clients to browse their collection, add to a cart, and checkout. In terms of the vendor side of things, we need to develop a vendor only page that requires them to be logged in, in order to be able to add new books to their shop. 
+We have been given the task to develop a e-commerce website for a small yet high priced vintage book vender. They stand out as a local collector who has been in the book selling buisness for years, providing quality and certified content. Although their selection is quite limited, it is important for them to host their shop in a well organized and appealing website that allows for clients to browse their collection, add to a cart, and checkout. 
 
 ## Developers
 
@@ -20,7 +20,8 @@ We have been given the task to develop a e-commerce website for a small yet high
 
 ## Animated Gifs/Pictures of App
 
-- Place various screens of your app here after they have been built
+![Gif of a user logging in and ordering a book.](./client/public/images/gifs/1.gif)
+![Gif of a user implementing genre filters.](./client/public/images/gifs/2.gif)
 
 ## Tech Stack
 
@@ -31,15 +32,11 @@ We have been given the task to develop a e-commerce website for a small yet high
 - Other: Launched using Heroku in conjunction with MongoDB's Atlas database. 
 
 
-## APIs
-
-- 
-
 ## MVP (Minimum Viable Product)
 
-- An e-commerce webpage that allows users to add items to a cart then allow those users to pay via Stripe. This application will allow users to filter by prices and the book's year of publication. Additionally, we will have a conditionally rendered page that exclusively allows a logged in vendor to upload a new item for their collection. 
-
+- An e-commerce webpage that allows users to add items to a cart then allow those users to pay via Stripe. This application will allow users to filter by genre, then add those items to a shopping cart that they may use to checkout. 
 
 ## Stretch Goals
 
--
+- Easy to use admin page for adding new books. 
+- Functional checkout process. 
