@@ -45,25 +45,6 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
 
-        book: async (parent, { _id }) => {
-            return await Book.findById(_id).populate('filter');
-        },
-
-        user: async (parent, args, context) => {
-            if (context.user) {
-                const user = await User.findById(context.user._id).populate({
-                    path: 'orders.books',
-                    populate: 'filter'
-                });
-
-                user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
-
-                return user;
-            }
-
-            throw new AuthenticationError('Not logged in');
-        },
-
         order: async (parent, { _id }, context) => {
             if (context.user) {
                 const user = await User.findById(context.user._id).populate({
@@ -78,41 +59,40 @@ const resolvers = {
         },
 
         checkout: async (parent, args, context) => {
+            const url = new URL(context.headers.referer).origin;
             const order = new Order({ books: args.books });
-            const { books } = await order.populate('books');
-
             const line_items = [];
 
+            const { books } = await order.populate('books').execPopulate();
+
             for (let i = 0; i < books.length; i++) {
-                // generate product id
                 const book = await stripe.books.create({
                     name: books[i].name,
-                    description: books[i].description
+                    description: books[i].description,
+                    images: [`${url}/images/${books[i].image}`]
                 });
 
-                // generate price id using the product id
                 const price = await stripe.prices.create({
                     book: book.id,
                     unit_amount: books[i].price * 100,
                     currency: 'usd',
                 });
 
-                // add price id to the line items array
                 line_items.push({
                     price: price.id,
                     quantity: 1
                 });
-
-                const session = await stripe.checkout.sessions.create({
-                    payment_method_types: ['card'],
-                    line_items,
-                    mode: 'payment',
-                    success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
-                    cancel_url: 'https://example.com/cancel'
-                });
-
-                return { session: session.id };
             }
+
+            const session = await stripe.checkout.sessions.create({
+                payment_method_types: ['card'],
+                line_items,
+                mode: 'payment',
+                success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+                cancel_url: `${url}/`
+            });
+
+            return { session: session.id };
         }
     },
     Mutation: {

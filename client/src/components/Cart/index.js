@@ -3,6 +3,7 @@ import { useLazyQuery } from "@apollo/client";
 import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
@@ -94,16 +95,18 @@ const Cart = () => {
             <strong>Total: ${calculateTotal()} USD</strong>
 
             {Auth.loggedIn() ? (
-              <button className="button" onClick={submitCheckout}>
-                Checkout
-              </button>
-            ) : (
+               <Link to="/checkout">
+                 {/* onclick has been removed */}
+                 <button className="button">Checkout</button>
+               </Link>
+           
+              ) : (
               <p>(log in to check out)</p>
             )}
           </div>
         </div>
       ) : (
-        <p>Haven't found anything you like yet ?</p>
+        <p>Haven't found anything you like yet?</p>
       )}
     </div>
   );

@@ -9,7 +9,7 @@
     --primary: #723636;
     --background: #f4e8dc;
     --dark: #232323;
-    --light: #fafafa;
+    --light: #f0e7e7;
     --error: rgb(228, 46, 1);
     /* --spacing-one: calc(1rem * 0.5);
     --spacing-two: calc(1rem); */
@@ -402,3 +402,16 @@ tr:last-child td:last-child { border-bottom-right-radius: 10px; } */
     height:70vh;
 
 }
+
+/* ====================================================================================================== */
+
+/* CHECKOUT  */
+
+input, textarea {
+    background-color: var(--light);
+    border: 2px solid var(--dark);
+    border-radius: 4px;
+    margin: 3px;
+    padding: 2px;
+    text-align: center;
+  }
