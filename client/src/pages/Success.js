@@ -21,9 +21,9 @@ function Success() {
         });
       }
 
-      // setTimeout(() => {
-      //   window.location.assign('/');
-      // }, 5000);
+      setTimeout(() => {
+        window.location.assign('/');
+      }, 4000);
     }
 
     saveOrder();
@@ -32,9 +32,7 @@ function Success() {
   return (
     <>
       <div className="h-100 text-center position-relative">
-        <Link className="back" to="/">
-          ← Back to Books
-        </Link>
+
 
         <div
           className=" succ d-flex

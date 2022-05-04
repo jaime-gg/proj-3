@@ -28,7 +28,7 @@ const Checkout = () => {
         return sum.toFixed(2);
     }
 
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState(`Please enter the appropriate information.`);
     const [formState, setFormState] = useState({ cc1: '', cc2: '', cc3: '', cc4: '', firstname: '', surname: '', month: '', year: '', csv: '' });
     const { cc1, cc2, cc3, cc4, firstname, surname, month, year, csv } = formState;
 
@@ -42,6 +42,10 @@ const Checkout = () => {
         if (!errorMessage) {
             setFormState({ ...formState, [e.target.name]: e.target.value });
         }
+    }
+
+    function clearCart(){
+
     }
 
     return (
@@ -71,8 +75,8 @@ const Checkout = () => {
                             </div>
                         </div>
 
-                        <div className="form-group mb-3 row">
-                            <div className="input-item mb-3 col row">
+                        <div className="form-group mb-3 row ">
+                            <div className="input-item mb-3 col row ">
                                 <label htmlFor="expiry">Exp. Date</label>
                                 <div className="col-sm-10">
                                     <input onBlur={handleInputChange} defaultValue={month} type="text" className="input col-3" maxLength="2" id="month" placeholder="02" />
@@ -89,10 +93,11 @@ const Checkout = () => {
                         <div className="form-group mb-3 row">
                         </div>
 
-                        <div className="justify-content-center align-items-center">
-                            <Link to="/success">
-                                <button className="justify-content-center align-items-center button" type="submit">PURCHASE</button>
-                            </Link>
+                        <div className="text-center justify-content-center align-items-center">
+                            {errorMessage ? null : <Link to="/success">
+                                <button className="justify-content-center align-items-center button" type="submit" onClick="">PURCHASE</button>
+                            </Link>}
+                            
 
                         </div>
                     </form>
