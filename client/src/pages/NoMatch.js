@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NoMatch = () => {
+  setTimeout(() => {
+        window.location.assign('/');
+      }, 5000);
   return (
     <>
     <div className="position-relative v-100">
