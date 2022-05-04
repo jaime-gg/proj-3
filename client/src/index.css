@@ -281,7 +281,7 @@ h3 {
     flex: 5;
     border-bottom: 1px solid var(--dark);
     border-radius: 3px;
-    background: none;
+    background: var(--light);
 }
 
 .userForm>form>div {
