@@ -11,9 +11,10 @@ const orderSchema = new Schema({
     books: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Book'
+            ref: 'Book',
         }
     ], 
+    
 });
 
 const Order = mongoose.model('Order', orderSchema);

@@ -8,20 +8,29 @@ import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import { useStoreContext } from "../../utils/GlobalState";
 
-import { QUERY_CHECKOUT } from "../../utils/queries";
+import { QUERY_CHECKOUT, QUERY_USER } from "../../utils/queries";
+
+import { useQuery } from "@apollo/client";
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
+  const { userData } = useQuery(QUERY_USER);
+  let user;
+
+  if (userData) {
+    user = userData.user;
+  }
+
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-  
+
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise("cart", "get");
       dispatch({ type: ADD_MULTIPLE_TO_CART, books: [...cart] });
     }
-    
+
     if (!state.cart.length) {
       getCart();
     }
@@ -55,6 +64,7 @@ const Cart = () => {
     state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
         bookIds.push(item._id);
+        user.orders.push({ books: { _id: item._id }, purchaseDate: Date.now });
       }
     });
 

@@ -35,7 +35,7 @@ function Login(props) {
         <div className=" p-5 d-flex align-items-center flex-column m-auto">
         <h2>Login</h2>
         <div className="userForm  justify-content-center align-items-center">
-        <form onSubmit={handleFormSubmit} >
+        <form onSubmit={handleFormSubmit} className="text-center">
           <div className="">
             <label htmlFor="email">Email address:</label>
             <input
@@ -66,6 +66,17 @@ function Login(props) {
           </div>
         </form>
       </div></div>
+      <div className="about row h-25">
+        <p className="py-4 px-4">
+          Textos Antiguos has been in the vintage book business since before it
+          was cool, and we are proud to say that we’ve got the books to prove
+          it! If you’re looking for an old book about Relativity and the Fourth
+          Dimension, or if you need some help tracking down that rare first
+          edition cover art, then you’ve come to the right place. Browse our
+          online catalog to find some of the best deals on books that hold rich
+          cultural and design significance !
+        </p>
+      </div>
       </div>
     );
   }

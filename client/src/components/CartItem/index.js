@@ -33,28 +33,6 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    // <div className="d-flex">
-
-    //   <div>
-    //     <div className="flex"></div>
-    //     <div>
-    //       <span>Qty:</span>
-    //       <input
-    //         type="number"
-    //         placeholder="1"
-    //         value={item.purchaseQuantity}
-    //         onChange={onChange}
-    //       />
-    //       <span
-    //         role="img"
-    //         aria-label="trash"
-    //         onClick={() => removeFromCart(item)}
-    //       >
-    //         🗑️
-    //       </span>
-    //     </div>
-    //   </div>
-    // </div>
 
     <div className="cartItem d-flex justify-content-around">
 

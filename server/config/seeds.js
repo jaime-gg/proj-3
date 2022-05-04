@@ -250,8 +250,7 @@ db.once("open", async () => {
     password: "password123",
     orders: [
       {
-        books: [Books[0]._id, Books[5]._id
-        ],
+        books: [Books[0]._id, Books[5]._id],
         purchaseDate: 1651620860840,
       },
       {
