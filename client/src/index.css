@@ -281,10 +281,98 @@ h3 {
     flex: 5;
     border-bottom: 1px solid var(--dark);
     border-radius: 3px;
-    background:none;
+    background: none;
 }
 
-.userForm>form>div{
-padding:2%;
-display:flex;
+.userForm>form>div {
+    padding: 2%;
+    display: flex;
 }
+
+
+/* order hsitory */
+
+
+table {
+    /* table-layout: fixed; */
+    width: 100%;
+    border-collapse: collapse;
+    /* border-bottom: 3px dashed var(--dark); */
+    text-align: left;
+    height: auto;
+
+}
+
+
+
+.orderCover {
+    object-fit: scale-down;
+    width: 100%;
+    padding: 10%;
+    margin: auto;
+}
+
+.orderArea {
+    overflow-y: auto;
+    height: 70vh;
+    overflow-x: hidden;
+
+}
+
+.orderPage {
+    height:75vh;
+
+}
+
+Link {
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+th {
+    width: 70%;
+    font-weight: normal;
+}
+
+tr {
+    padding: 10%;
+    vertical-align: top;
+    /* border-bottom: 1px solid var(--dark); */
+    /* border-radius: 10px; */
+}
+
+td {
+
+    width: 15%;
+}
+
+.date {
+    font-size: larger;
+
+}
+
+/*     border:1px solid black;
+    border-radius: 10px; */
+
+.itemdivider {
+
+
+
+    border-bottom: 1px solid var(--dark);
+    border-radius: 10px;
+}
+
+.divider {
+
+border-radius: 10px;
+
+}
+
+.divider>p:last-child{
+    border-bottom:1px dashed var(--dark);
+    border-left: 1px dashed var(--dark);
+    border-right: 1px dashed var(--dark);
+    border-radius: 10px;
+}
+
