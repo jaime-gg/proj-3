@@ -9,7 +9,7 @@
     --primary: #723636;
     --background: #f4e8dc;
     --dark: #232323;
-    --light: #fafafa;
+    --light: #f0e7e7;
     --error: rgb(228, 46, 1);
     /* --spacing-one: calc(1rem * 0.5);
     --spacing-two: calc(1rem); */
@@ -320,7 +320,7 @@ table {
 }
 
 .orderPage {
-    height:75vh;
+    height: 75vh;
 
 }
 
@@ -365,22 +365,36 @@ td {
 
 .divider {
 
-border-radius: 10px;
+    border-radius: 10px;
 
 }
 
-.divider>p:last-child{
-    border-bottom:1px dashed var(--dark);
+.divider>p:last-child {
+    border-bottom: 1px dashed var(--dark);
     border-left: 1px dashed var(--dark);
     border-right: 1px dashed var(--dark);
     border-radius: 10px;
 }
 
-.order>table>::nth-child{
-    color:var(--primary)
+.order>table>::nth-child {
+    color: var(--primary)
 }
 
 /* tr:first-child td:first-child { border-top-left-radius: 10px; }
 tr:first-child td:last-child { border-top-right-radius: 10px; }
 tr:last-child td:first-child { border-bottom-left-radius: 10px; }
 tr:last-child td:last-child { border-bottom-right-radius: 10px; } */
+
+
+/* ====================================================================================================== */
+
+/* CHECKOUT  */
+
+input, textarea {
+    background-color: var(--light);
+    border: 2px solid var(--dark);
+    border-radius: 4px;
+    margin: 3px;
+    padding: 2px;
+    text-align: center;
+  }
