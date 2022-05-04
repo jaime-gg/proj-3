@@ -23,7 +23,7 @@ function OrderHistory() {
                 Order History for {user.firstName} {user.lastName}
               </h2>
               {user.orders.map((order) => (
-                <div key={order._id} className="">
+                <div key={order._id} className="bg-primary">
                   <h3>
                     {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
                   </h3>
@@ -31,7 +31,7 @@ function OrderHistory() {
                     {order.books.map(({ _id, image, name, price }, index) => (
                       <div key={index} className="">
                         <Link to={`/books/${_id}`}>
-                          <img alt={name} src={`/assets/${image}`} />
+                          <img alt={name} src={`../../images/${image}`} />
                           <p>{name}</p>
                         </Link>
                         <div>

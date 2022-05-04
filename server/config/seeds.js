@@ -236,22 +236,31 @@ db.once("open", async () => {
   // ================================================================================================
 
   await User.deleteMany();
-  const Users = await User.insertMany([
-    {
-      firstName: "Jorge",
-      lastName: "Borges",
-      email: "vendor@mail.com",
-      password: "password123",
-    },
-    {
-      firstName: "Gioconda",
-      lastName: "Belli",
-      email: "customer@mail.com",
-      password: "password123",
-      orders: [{ books: [{_id:'626f06cb6016e07ac870339e'}, {_id:'626f06cb6016e07ac870339c'}], purchaseDate: {} }, 
-      { books: [{_id:'626f06cb6016e07ac87033a0'}], purchaseDate: {} }],
-    },
-  ]);
+  await User.create({
+    firstName: "Jorge",
+    lastName: "Borges",
+    email: "vendor@mail.com",
+    password: "password123",
+  });
+
+  await User.create({
+    firstName: "Gioconda",
+    lastName: "Belli",
+    email: "customer@mail.com",
+    password: "password123",
+    orders: [
+      {
+        books: [Books[0]._id, Books[5]._id
+        ],
+        purchaseDate: 1651620860840,
+      },
+      {
+        books: [Books[3]._id],
+        purchaseDate: 1519211809934,
+      },
+    ],
+  });
+
   console.log("users seeded");
 
   process.exit();
