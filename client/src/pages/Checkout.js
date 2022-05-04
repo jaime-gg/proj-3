@@ -95,7 +95,7 @@ const Checkout = () => {
 
                         <div className="text-center justify-content-center align-items-center">
                             {errorMessage ? null : <Link to="/success">
-                                <button className="justify-content-center align-items-center button" type="submit" onClick="">PURCHASE</button>
+                                <button className="justify-content-center align-items-center button" type="submit">PURCHASE</button>
                             </Link>}
                             
 
