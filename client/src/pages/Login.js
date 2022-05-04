@@ -32,9 +32,10 @@ function Login(props) {
     return (
       <div className="">
         <Link to="/signup">← Go to Signup</Link>
-  
+        <div className=" p-5 d-flex align-items-center flex-column m-auto">
         <h2>Login</h2>
-        <form onSubmit={handleFormSubmit}>
+        <div className="userForm  justify-content-center align-items-center">
+        <form onSubmit={handleFormSubmit} >
           <div className="">
             <label htmlFor="email">Email address:</label>
             <input
@@ -60,10 +61,11 @@ function Login(props) {
               <p className="error-text">The provided credentials are incorrect</p>
             </div>
           ) : null}
-          <div className="">
-            <button type="submit">Submit</button>
+          <div className="d-inline">
+            <button className="button" type="submit">Submit</button>
           </div>
         </form>
+      </div></div>
       </div>
     );
   }

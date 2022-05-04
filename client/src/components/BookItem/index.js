@@ -14,8 +14,7 @@ function BookItem(item) {
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id);
-
-    if (itemInCart) {
+    if (itemInCart && itemInCart.purchaseQuantity < quantity) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: _id,
@@ -26,7 +25,7 @@ function BookItem(item) {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
-    } else {
+    } else if (!itemInCart){
       dispatch({
         type: ADD_TO_CART,
         book: { ...item, purchaseQuantity: 1 },

@@ -32,6 +32,7 @@ function Detail() {
       dispatch({
         type: UPDATE_BOOKS,
         books: data.books,
+        displayBooks: data.books,
       });
 
       data.books.forEach((book) => {
@@ -51,7 +52,8 @@ function Detail() {
 
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === id);
-    if (itemInCart) {
+    const stock = currentBook.quantity;
+    if (itemInCart && itemInCart.purchaseQuantity < stock) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: id,
@@ -61,7 +63,7 @@ function Detail() {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
-    } else {
+    } else if (!itemInCart) {
       dispatch({
         type: ADD_TO_CART,
         book: { ...currentBook, purchaseQuantity: 1 },
@@ -74,7 +76,9 @@ function Detail() {
     <>
       {currentBook && cart ? (
         <div className="px-3 col-8 position-relative ">
-          <Link className="back" to="/">← Back to Books</Link>
+          <Link className="back" to="/">
+            ← Back to Books
+          </Link>
           <div
             className="d-flex justify-content-center align-items-center singleBook
           "
@@ -111,12 +115,13 @@ function Detail() {
       </div>
       <div className="about row h-25">
         <p className="py-4 px-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis velit
-          diam, malesuada nec luctus non, lobortis id mi. Mauris eget vulputate
-          velit. Praesent sit amet neque ac elit mollis tristique. Pellentesque
-          vulputate, mi ut ornare rutrum, nulla leo aliquet dolor, ac maximus
-          nisl erat eget tellus. Aliquam bibendum mauris eget suscipit
-          fringilla.{" "}
+          Textos Antiguos has been in the vintage book business since before it
+          was cool, and we are proud to say that we’ve got the books to prove
+          it! If you’re looking for an old book about Relativity and the Fourth
+          Dimension, or if you need some help tracking down that rare first
+          edition cover art, then you’ve come to the right place. Browse our
+          online catalog to find some of the best deals on books that hold rich
+          cultural and design significance !
         </p>
       </div>
     </>

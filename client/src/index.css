@@ -27,7 +27,7 @@ a:hover {
 
 html,
 body {
-  
+
     min-height: 100%;
     min-width: 100%;
     overflow: hidden;
@@ -60,7 +60,7 @@ a {
 
 .about {
     border-top: 3px solid var(--dark);
-    
+
     position: absolute;
     bottom: 0;
     font-size: smaller;
@@ -101,7 +101,7 @@ a {
 
 .book-list {
     gap: 5% 1%;
-    overflow: scroll;
+    overflow-y: auto;
     height: 75vh;
     overflow-x: hidden;
     /* padding: 10px; */
@@ -156,7 +156,7 @@ a {
 }
 
 .price {
-    
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -210,7 +210,7 @@ a {
     position: absolute;
     top: 0;
     right: 0;
-    overflow-y:auto;
+    overflow-y: auto;
 }
 
 .text-center>h2,
@@ -221,17 +221,17 @@ h3 {
 .singleBook>div>p {
     font-size: small;
 
-    margin:0;
-   
+    margin: 0;
+
 }
 
-.singleBook{
-    overflow-y:auto;
-    
+.singleBook {
+    overflow-y: auto;
+
 }
 
 .description {
-text-align: left;
+    text-align: left;
     overflow-y: auto;
     overflow-x: hidden;
     height: 20vh;
@@ -245,10 +245,10 @@ text-align: left;
     text-align: center;
 }
 
-.back{
-    position:absolute;
+.back {
+    position: absolute;
     top: 1%;
-    left:0;
+    left: 0;
 }
 
 
@@ -261,15 +261,30 @@ text-align: left;
 .singleBook::-webkit-scrollbar-track {
     border: 1px dashed var(--primary);
     border-radius: 10px;
-    
+
 }
 
 .singleBook::-webkit-scrollbar-thumb {
-    background:#7236366e;
+    background: #7236366e;
     border-radius: 10px;
     border: 1px dashed var(--primary);
 }
 
 .singleBook::-webkit-scrollbar-button {
     visibility: hidden;
+}
+
+/* //////////////////////////////////////////////////// */
+/* LOGIN + SIGN UP */
+
+.userForm>form>div>input {
+    flex: 5;
+    border-bottom: 1px solid var(--dark);
+    border-radius: 3px;
+    background:none;
+}
+
+.userForm>form>div{
+padding:2%;
+display:flex;
 }

@@ -8,6 +8,7 @@ const { Provider } = StoreContext;
 const StoreProvider = ({value = [], ...props}) => {
     const [state, dispatch] = useBookReducer({
         books: [],
+        displayBooks:[],
         cart: [],
         filters: [],
         currentFilter: ''
