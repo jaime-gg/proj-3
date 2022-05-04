@@ -55,7 +55,7 @@ function FilterMenu() {
      
       {filters.map((item) => (
         // <li>
-        <button
+        <Link to="/"> <button
           className="filter-btn"
           key={item._id}
           onClick={() => {
@@ -63,7 +63,7 @@ function FilterMenu() {
           }}
         >
           {item.name}
-        </button>
+        </button></Link>
         // </li>
       ))}
       {/* </ul> */}
