@@ -12,17 +12,21 @@ function OrderHistory() {
     user = data.user;
   }
 
-  function calculateTotal() {
+  function calculateTotal(orderId) {
     let sum = 0;
-
-    user.orders.forEach((item) => {
+    console.log(orderId);
+    const orderArray = user.orders;
+    console.log(orderArray);
+    const orderI = orderArray.findIndex((obj) => obj._id === orderId);
+    console.log(orderI);
+    user.orders[orderI].books.forEach((item) => {
       const purchaseQuantity = {};
-      const quantityArray = [item.books[0]._id];
-      const id = item.books[0]._id;
+      const quantityArray = [item._id];
+      const id = item._id;
       quantityArray.forEach(function (x) {
         purchaseQuantity[x] = (purchaseQuantity[x] || 0) + 1;
       });
-      sum += item.books[0].price * purchaseQuantity[id];
+      sum += item.price * purchaseQuantity[id];
       console.log(purchaseQuantity[id]);
       console.log(sum);
     });
@@ -75,7 +79,9 @@ function OrderHistory() {
                       ))}
                     </tbody>
                   </table>
-                  <p className="p-3 m-0">Total : $ {calculateTotal()}USD</p>
+                  <p className="p-3 m-0">
+                    Total : $ {calculateTotal(order._id)}USD
+                  </p>
                 </div>
               ))}
             </div>
