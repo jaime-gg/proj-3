@@ -388,7 +388,7 @@ tr:last-child td:last-child { border-bottom-right-radius: 10px; } */
 
 /* ====================================================================================================== */
 
-/* CHECKOUT  */
+/* INPUT  */
 
 input, textarea {
     background-color: var(--light);
@@ -397,4 +397,9 @@ input, textarea {
     margin: 3px;
     padding: 2px;
     text-align: center;
-  }
+}
+
+.success {
+    justify-content: center;
+    align-items: center;
+}

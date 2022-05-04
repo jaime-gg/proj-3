@@ -95,12 +95,12 @@ const Cart = () => {
             <strong>Total: ${calculateTotal()} USD</strong>
 
             {Auth.loggedIn() ? (
-               <Link to="/checkout">
-                 {/* onclick has been removed */}
-                 <button className="button">Checkout</button>
-               </Link>
-           
-              ) : (
+              <Link to="/checkout">
+                {/* onclick has been removed */}
+                <button className="button">Checkout</button>
+              </Link>
+
+            ) : (
               <p>(log in to check out)</p>
             )}
           </div>
