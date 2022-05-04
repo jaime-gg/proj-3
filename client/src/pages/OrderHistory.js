@@ -14,11 +14,11 @@ function OrderHistory() {
 
   function calculateTotal(orderId) {
     let sum = 0;
-    console.log(orderId);
+    // console.log(orderId);
     const orderArray = user.orders;
-    console.log(orderArray);
+    // console.log(orderArray);
     const orderI = orderArray.findIndex((obj) => obj._id === orderId);
-    console.log(orderI);
+    // console.log(orderI);
     user.orders[orderI].books.forEach((item) => {
       const purchaseQuantity = {};
       const quantityArray = [item._id];
@@ -27,8 +27,8 @@ function OrderHistory() {
         purchaseQuantity[x] = (purchaseQuantity[x] || 0) + 1;
       });
       sum += item.price * purchaseQuantity[id];
-      console.log(purchaseQuantity[id]);
-      console.log(sum);
+      // console.log(purchaseQuantity[id]);
+      // console.log(sum);
     });
     return sum.toFixed(2);
   }
