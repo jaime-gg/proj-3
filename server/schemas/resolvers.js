@@ -1,7 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Book, Filter, User, Order } = require('../models');
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')('pk_test_51KvW8CI1xfLYtnPd5U2Z30BWFjpy6NRAYmQNSlX7UMt74jo56EDaUnTZZQHElT2WxIDbOAwJdyvtYvU3iZEjXTeo00Nf53qVKi');
 
 
 const resolvers = {
@@ -80,17 +80,18 @@ const resolvers = {
         checkout: async (parent, args, context) => {
             const order = new Order({ books: args.books });
             const { books } = await order.populate('books');
-
+            
             const line_items = [];
-
+            
             for (let i = 0; i < books.length; i++) {
-                // generate product id
+                // generate book id
                 const book = await stripe.books.create({
                     name: books[i].name,
                     description: books[i].description
                 });
+                console.log(book)
 
-                // generate price id using the product id
+                // generate price id using the book id
                 const price = await stripe.prices.create({
                     book: book.id,
                     unit_amount: books[i].price * 100,
