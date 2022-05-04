@@ -281,7 +281,7 @@ h3 {
     flex: 5;
     border-bottom: 1px solid var(--dark);
     border-radius: 3px;
-    background: none;
+    background: var(--light);
 }
 
 .userForm>form>div {
@@ -385,14 +385,32 @@ tr:first-child td:last-child { border-top-right-radius: 10px; }
 tr:last-child td:first-child { border-bottom-left-radius: 10px; }
 tr:last-child td:last-child { border-bottom-right-radius: 10px; } */
 
+/* ////////////////////////////////// */
+/* success page */
+.svg {
+
+    height: 20vh;
+    filter: invert(28%) sepia(6%) saturate(4069%) hue-rotate(314deg) brightness(90%) contrast(95%);
+}
+
+.svg:hover {
+
+    filter: invert(7%) sepia(1%) saturate(273%) hue-rotate(314deg) brightness(101%) contrast(85%);
+}
+
+.succ {
+    height: 70vh;
+
+}
 
 /* ====================================================================================================== */
 
 /* INPUT  */
 
-input, textarea {
+input,
+textarea {
     background-color: var(--light);
-    border: 2px solid var(--dark);
+    border-bottom: 1px solid var(--dark);
     border-radius: 4px;
     margin: 3px;
     padding: 2px;
@@ -402,4 +420,82 @@ input, textarea {
 .success {
     justify-content: center;
     align-items: center;
+}
+
+
+.total {
+    text-align: left;
+}
+
+.thanks {
+    color: var(--primary);
+    text-align: center;
+}
+
+/* /////////////////// */
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.worm {
+    display: flex;
+    align-items: center;
+    transform: perspective(1000px) rotateX(30deg);
+    transform-style: preserve-3d;
+    height: 70px;
+}
+
+@keyframes loading {
+
+    0%,
+    100% {
+        height: 10px;
+        transform: translateZ(-20px);
+    }
+
+    50% {
+        height: 10px;
+        transform: translateZ(20px);
+    }
+}
+
+.worm .x {
+    background-color: #498000;
+    animation: loading 2s infinite;
+    width: 10px;
+    height: 0;
+    margin: -3px;
+    border-radius: 10px;
+}
+
+.worm .x:nth-child(2) {
+    animation-delay: .1s;
+}
+
+.worm .x:nth-child(3) {
+    animation-delay: .2s;
+}
+
+.worm .x:nth-child(4) {
+    animation-delay: .3s;
+}
+
+.worm .x:nth-child(5) {
+    animation-delay: .4s;
+}
+
+.worm .x:nth-child(6) {
+    animation-delay: .5s;
+}
+
+.worm .x:nth-child(7) {
+    animation-delay: .6s;
+}
+
+.worm .x:nth-child(8) {
+    animation-delay: .7s;
 }

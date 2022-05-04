@@ -48,10 +48,10 @@ const Checkout = () => {
 
         <div className="wrapper row">
             <div className="container col">
-                <article className=" p-5 d-flex align-items-center flex-column m-auto">
-                    <h1>
-                        Credit Card Details
-                    </h1>
+                <article className=" p-5 d-flex align-content-center flex-column ">
+                    <h2 className="">
+                        Card Details
+                    </h2>
                     <form className="userForm" if="cc-form" autoComplete="off">
                         <div className="cc-form form-group mb-3 row">
                             <label htmlFor="first" >Card Number</label>
@@ -64,7 +64,7 @@ const Checkout = () => {
                         </div>
 
                         <div className="form-group mb-3 row">
-                            <label htmlFor="name">Name On Card</label>
+                            <label htmlFor="name">Card Owner</label>
                             <div className="col-sm-12">
                                 <input onBlur={handleInputChange} defaultValue={firstname} type="text" id="name" className="input col-5" maxLength="20" placeholder="First Name" />
                                 <input onBlur={handleInputChange} defaultValue={surname} type="text" id="name" className="input col-5" maxLength="20" placeholder="Surname" />
