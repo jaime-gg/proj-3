@@ -49,12 +49,12 @@ export const QUERY_USER = gql`
                 _id
                 purchaseDate
                 books {
-                _id
-                name
-                description
-                price
-                quantity
-                image
+                    _id
+                    name
+                    description
+                    price
+                    quantity
+                    image
                 }
             }
         }

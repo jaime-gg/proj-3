@@ -1,7 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Book, Filter, User, Order } = require('../models');
 const { signToken } = require('../utils/auth');
-// const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 
 const resolvers = {
@@ -76,6 +76,44 @@ const resolvers = {
 
             throw new AuthenticationError('Not logged in');
         },
+
+        checkout: async (parent, args, context) => {
+            const order = new Order({ books: args.books });
+            const { books } = await order.populate('books');
+
+            const line_items = [];
+
+            for (let i = 0; i < books.length; i++) {
+                // generate product id
+                const book = await stripe.books.create({
+                    name: books[i].name,
+                    description: books[i].description
+                });
+
+                // generate price id using the product id
+                const price = await stripe.prices.create({
+                    book: book.id,
+                    unit_amount: books[i].price * 100,
+                    currency: 'usd',
+                });
+
+                // add price id to the line items array
+                line_items.push({
+                    price: price.id,
+                    quantity: 1
+                });
+
+                const session = await stripe.checkout.sessions.create({
+                    payment_method_types: ['card'],
+                    line_items,
+                    mode: 'payment',
+                    success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
+                    cancel_url: 'https://example.com/cancel'
+                });
+
+                return { session: session.id };
+            }
+        }
     },
     Mutation: {
         addUser: async (parent, args) => {

@@ -44,9 +44,9 @@ const typeDefs = gql`
         book(_id: ID!): Book
         user: User
         order(_id: ID!): Order
-        checkout(books: [ID]!): Checkout
         filters: [Filter]
         books(filter: ID, name: String): [Book] 
+        checkout(books: [ID]!): Checkout
     }
 
     type Mutation {
