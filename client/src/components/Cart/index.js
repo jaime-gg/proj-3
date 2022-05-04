@@ -65,7 +65,7 @@ const Cart = () => {
     state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
         bookIds.push(item._id);
-        user.orders.push({ books: { _id: item._id }, purchaseDate: Date.now });
+        // user.orders.push({ books: { _id: item._id }, purchaseDate: Date.now });
       }
     });
 
