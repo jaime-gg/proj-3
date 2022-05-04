@@ -1,11 +1,24 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
-
+import { useEffect } from "react";
 import FilterMenu from "../FilterMenu";
-import './style.css'
+import "./style.css";
+
 
 function Nav() {
+  useEffect(() => {
+    const scriptTag = document.createElement('script');
+
+    scriptTag.src = "./typewriter.js";
+    // scriptTag.async = true;
+
+    document.body.appendChild(scriptTag);
+    return () => {
+        document.body.removeChild(scriptTag);
+    }
+}, []);
+
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -37,22 +50,24 @@ function Nav() {
   return (
     <header className="flex-row">
       <div className="logo">
-      <h1 className="px-4 py-3">
-        <Link to="/">
-          TEXTOS<br></br> ANTIGUOS 
-        </Link>
-      </h1>
-</div>
+        <h1 id="logo" className="px-4 py-3">
+          <Link to="/">
+            TEXTOS<br></br> ANTIGUOS
+          </Link>
+        </h1>
+      </div>
 
       <nav className="p-3">
-          {showNavigation()}
-          <FilterMenu />
+        {showNavigation()}
+        <FilterMenu />
       </nav>
-<div className="credit px-3">
-  <p>Developed By<br></br>
- <a href="https://github.com/ditazan">Dita Z.</a> & <a href="https://github.com/jaime-gg">Jaime G.G.</a></p>
-
-</div>
+      <div className="credit px-3">
+        <p>
+          Developed By<br></br>
+          <a href="https://github.com/ditazan">Dita Z.</a> &{" "}
+          <a href="https://github.com/jaime-gg">Jaime G.G.</a>
+        </p>
+      </div>
     </header>
   );
 }

@@ -38,7 +38,6 @@ function FilterMenu() {
       currentFilter: id,
     });
 
-    console.log(id);
   };
 
   return (
@@ -55,9 +54,8 @@ function FilterMenu() {
      
       {filters.map((item) => (
         // <li>
-        <Link to="/"> <button
+        <Link key={item._id} to="/"> <button
           className="filter-btn"
-          key={item._id}
           onClick={() => {
             handleClick(item._id);
           }}

@@ -13,6 +13,16 @@
     font-size: 3vw;
 }
 
+span{
+animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50%{
+        opactity:0;
+    }
+}
+
 
 
 a {

@@ -296,7 +296,7 @@ h3 {
 table {
     /* table-layout: fixed; */
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: seperate;
     /* border-bottom: 3px dashed var(--dark); */
     text-align: left;
     height: auto;
@@ -339,7 +339,7 @@ tr {
     padding: 10%;
     vertical-align: top;
     /* border-bottom: 1px solid var(--dark); */
-    /* border-radius: 10px; */
+    border-radius: 10px;
 }
 
 td {
@@ -379,3 +379,8 @@ border-radius: 10px;
 .order>table>::nth-child{
     color:var(--primary)
 }
+
+/* tr:first-child td:first-child { border-top-left-radius: 10px; }
+tr:first-child td:last-child { border-top-right-radius: 10px; }
+tr:last-child td:first-child { border-bottom-left-radius: 10px; }
+tr:last-child td:last-child { border-bottom-right-radius: 10px; } */

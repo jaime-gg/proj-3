@@ -24,8 +24,8 @@ function OrderHistory() {
               Order History for {user.firstName} {user.lastName}
             </h2>
               {user.orders.map((order) => (
-                <div className="divider mb-5">
-                  <table className="p-3" key={order._id}>
+                <div className="divider mb-5" key={order._id}>
+                  <table className="p-3">
                     <tbody>
                       <tr>
                         <th className="date">
@@ -37,9 +37,8 @@ function OrderHistory() {
                       </tr>
 
                       {order.books.map(({ _id, image, name, price }, index) => (
-                        <div className="itemdivider">
-                          {" "}
-                          <tr key={index}>
+                        
+                          <tr className="itemdivider" key={index}>
                             <th className="p-3">
                               {name}
                               <br></br>x 2
@@ -57,7 +56,7 @@ function OrderHistory() {
                               </Link>
                             </td>
                           </tr>
-                        </div>
+                        
                       ))}
                     </tbody>
                   </table>
