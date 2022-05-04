@@ -6,12 +6,12 @@
 .logo {
     font-family: Grotesk;
     border-bottom: 3px solid var(--dark);
-    
+    font-size: 3vw;
+    position: relative;
+    width:100%;
+    height:3.75em;
 }
 
-.logo>h1{
-    font-size: 3vw;
-}
 
 span{
 animation: blinker 1s linear infinite;
