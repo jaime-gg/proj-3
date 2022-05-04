@@ -38,32 +38,30 @@ function FilterMenu() {
       currentFilter: id,
     });
 
-    console.log(id);
   };
 
   return (
     <div className="underNav">
       {/* <ul> */}
-      {/* <li><Link to="/">All</Link></li> */}
-      <button
+      <Link to="/"> <button
         className="filter-btn"
         onClick={() => {
           handleClick();
         }}
       >
         All
-      </button>
+      </button></Link>
+     
       {filters.map((item) => (
         // <li>
-        <button
+        <Link key={item._id} to="/"> <button
           className="filter-btn"
-          key={item._id}
           onClick={() => {
             handleClick(item._id);
           }}
         >
           {item.name}
-        </button>
+        </button></Link>
         // </li>
       ))}
       {/* </ul> */}
