@@ -320,7 +320,7 @@ table {
 }
 
 .orderPage {
-    height:75vh;
+    height: 75vh;
 
 }
 
@@ -365,22 +365,40 @@ td {
 
 .divider {
 
-border-radius: 10px;
+    border-radius: 10px;
 
 }
 
-.divider>p:last-child{
-    border-bottom:1px dashed var(--dark);
+.divider>p:last-child {
+    border-bottom: 1px dashed var(--dark);
     border-left: 1px dashed var(--dark);
     border-right: 1px dashed var(--dark);
     border-radius: 10px;
 }
 
-.order>table>::nth-child{
-    color:var(--primary)
+.order>table>::nth-child {
+    color: var(--primary)
 }
 
 /* tr:first-child td:first-child { border-top-left-radius: 10px; }
 tr:first-child td:last-child { border-top-right-radius: 10px; }
 tr:last-child td:first-child { border-bottom-left-radius: 10px; }
 tr:last-child td:last-child { border-bottom-right-radius: 10px; } */
+
+/* ////////////////////////////////// */
+/* success page */
+.svg {
+
+    height: 20vh;
+    filter: invert(28%) sepia(6%) saturate(4069%) hue-rotate(314deg) brightness(90%) contrast(95%);
+}
+
+.svg:hover {
+
+    filter: invert(7%) sepia(1%) saturate(273%) hue-rotate(314deg) brightness(101%) contrast(85%);
+}
+
+.succ {
+    height:70vh;
+
+}
