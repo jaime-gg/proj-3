@@ -248,16 +248,6 @@ db.once("open", async () => {
     lastName: "Belli",
     email: "customer@mail.com",
     password: "password123",
-    orders: [
-      {
-        books: [Books[0]._id, Books[5]._id],
-        purchaseDate: 1651620860840,
-      },
-      {
-        books: [Books[3]._id],
-        purchaseDate: 1519211809934,
-      },
-    ],
   });
 
   console.log("users seeded");
