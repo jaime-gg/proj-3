@@ -133,7 +133,7 @@ a {
     color: var(--background);
     border-radius: 10px;
     margin: 10px;
-    font-size: 90%;
+    font-size: 1vw;
     font-family: Grotesk;
     border: 0;
     padding: 0.25rem 0.5rem;
@@ -376,3 +376,6 @@ border-radius: 10px;
     border-radius: 10px;
 }
 
+.order>table>::nth-child{
+    color:var(--primary)
+}

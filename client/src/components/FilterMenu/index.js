@@ -44,15 +44,15 @@ function FilterMenu() {
   return (
     <div className="underNav">
       {/* <ul> */}
-      {/* <li><Link to="/">All</Link></li> */}
-      <button
+      <Link to="/"> <button
         className="filter-btn"
         onClick={() => {
           handleClick();
         }}
       >
         All
-      </button>
+      </button></Link>
+     
       {filters.map((item) => (
         // <li>
         <button

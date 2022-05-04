@@ -9,6 +9,10 @@
     
 }
 
+.logo>h1{
+    font-size: 3vw;
+}
+
 
 
 a {
@@ -56,7 +60,7 @@ li {
 
 .credit{
     font-family: Grotesk;
-
+font-size: 1.25vw;
     position:absolute;
     bottom:0;
     left:0;
@@ -69,6 +73,8 @@ li {
 .underNav{
     display:flex;
     flex-flow: column;
-   /* / justify-content:flex-start; */
+    justify-content:flex-start;
     align-items:flex-start ;
+    padding-left: 2rem;
+    text-align: left;
 }

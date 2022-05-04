@@ -37,9 +37,9 @@ function Nav() {
   return (
     <header className="flex-row">
       <div className="logo">
-      <h1 className="p-3">
+      <h1 className="px-4 py-3">
         <Link to="/">
-          TEXTOS ANTIGUOS 
+          TEXTOS<br></br> ANTIGUOS 
         </Link>
       </h1>
 </div>
