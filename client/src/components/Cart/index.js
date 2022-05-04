@@ -10,7 +10,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 
 import { QUERY_CHECKOUT } from "../../utils/queries";
 import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = loadStripe('pk_test_51KvW8CI1xfLYtnPd5U2Z30BWFjpy6NRAYmQNSlX7UMt74jo56EDaUnTZZQHElT2WxIDbOAwJdyvtYvU3iZEjXTeo00Nf53qVKi');
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -30,10 +30,7 @@ const Cart = () => {
   useEffect(() => {
     if (data) {
       stripePromise.then((res) => {
-        if(data.checkout) {
-          console.log(data)
-          res.redirectToCheckout({ sessionId: data.checkout.session });
-        }
+        res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
   }, [data]);
@@ -93,7 +90,7 @@ const Cart = () => {
 
         </div>
       ) : (
-        <p>Haven't found anything you like yet ?</p>
+        <p>Haven't found anything you like yet?</p>
       )}
     </div>
   );
