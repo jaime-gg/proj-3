@@ -10,7 +10,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 
 import { QUERY_CHECKOUT } from "../../utils/queries";
 import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -30,11 +30,13 @@ const Cart = () => {
   useEffect(() => {
     if (data) {
       stripePromise.then((res) => {
-        res.redirectToCheckout({ sessionId: data.checkout.session });
+        if (data.checkout) {
+          res.redirectToCheckout({ sessionId: data.checkout.session });
+        }
       });
     }
   }, [data]);
-  
+
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
   }
@@ -70,24 +72,25 @@ const Cart = () => {
 
       <h2>Cart</h2>
       {state.cart.length ? (
-        <div className="" >
-{/* ///////////////////////////////////////////////////////////////////// */}
+        <div className="">
+          {/* ///////////////////////////////////////////////////////////////////// */}
           <div className="books ">
             {state.cart.map((item) => (
               <CartItem key={item._id} item={item} />
             ))}
           </div>
-{/* //////////////////////////////////////////////////////////////// */}
+          {/* //////////////////////////////////////////////////////////////// */}
           <div className="cartInfo p-3 ">
             <strong>Total: ${calculateTotal()} USD</strong>
 
             {Auth.loggedIn() ? (
-              <button className="button"onClick={submitCheckout}>Checkout</button>
+              <button className="button" onClick={submitCheckout}>
+                Checkout
+              </button>
             ) : (
               <p>(log in to check out)</p>
             )}
           </div>
-
         </div>
       ) : (
         <p>Haven't found anything you like yet ?</p>
