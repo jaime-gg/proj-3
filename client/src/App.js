@@ -19,6 +19,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success'
+import Checkout from "./pages/Checkout";
 
 import Nav from './components/Nav';
 
@@ -57,6 +58,7 @@ function App() {
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/orderHistory" component={OrderHistory} />
                 <Route exact path="/books/:id" component={Detail} />
+                <Route exact path="/checkout" component={Checkout} />
                 <Route exact path="/success" component={Success} />
                 <Route component={NoMatch} />
               </Switch>
