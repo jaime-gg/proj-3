@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import CartItem from "../components/CartItem";
 import { useStoreContext } from "../utils/GlobalState";
 import { ADD_MULTIPLE_TO_CART } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
     const [state, dispatch] = useStoreContext();
@@ -27,26 +28,19 @@ const Checkout = () => {
         return sum.toFixed(2);
     }
 
-    const numOfFields = 4;
+    const [errorMessage, setErrorMessage] = useState('');
+    const [formState, setFormState] = useState({ cc1: '', cc2: '', cc3: '', cc4: '', firstname: '', surname: '', month: '', year: '', csv: '' });
+    const { cc1, cc2, cc3, cc4, firstname, surname, month, year, csv } = formState;
 
-    const handleChange = e => {
-        const { maxLength, value, name } = e.target;
-        const [fieldName, fieldIndex] = name.split("-");
+    function handleInputChange(e) {
+        if (!e.target.value.length) {
+            setErrorMessage(`Please enter the appropriate information.`);
+        } else {
+            setErrorMessage('');
+        }
 
-        // Check if they hit the max character length
-        if (value.length >= maxLength) {
-            // Check if it's not the last input field
-            if (parseInt(fieldIndex, 10) < 4) {
-                // Get the next input field
-                const nextSibling = document.querySelector(
-                    `input[name=cc-${parseInt(fieldIndex, 10) + 1}]`
-                );
-
-                // If found, focus the next field
-                if (nextSibling !== null) {
-                    nextSibling.focus();
-                }
-            }
+        if (!errorMessage) {
+            setFormState({ ...formState, [e.target.name]: e.target.value });
         }
     }
 
@@ -62,18 +56,18 @@ const Checkout = () => {
                         <div className="cc-form form-group mb-3 row">
                             <label htmlFor="first" >Card Number</label>
                             <div className="col-sm-10">
-                                <input name="cc-1" type="text" id="first" className="input col-xs-2" maxLength="4" placeholder="&#9679;&#9679;&#9679;&#9679;" onChange={handleChange} />
-                                <input name="cc-2" type="text" id="second" className="input col-xs-2" maxLength="4" placeholder="&#9679;&#9679;&#9679;&#9679;" onChange={handleChange} />
-                                <input name="cc-3" type="text" id="third" className="input col-xs-2" maxLength="4" placeholder="&#9679;&#9679;&#9679;&#9679;" onChange={handleChange} />
-                                <input name="cc-4" type="text" id="fourth" className="input col-xs-2" maxLength="4" placeholder="&#9679;&#9679;&#9679;&#9679;" onChange={handleChange} />
+                                <input onBlur={handleInputChange} defaultValue={cc1} name="cc1" type="text" id="first" className="input col-xs-2" maxLength="4" placeholder="&#9679;&#9679;&#9679;&#9679;"   />
+                                <input onBlur={handleInputChange} defaultValue={cc2} name="cc2" type="text" id="second" className="input col-xs-2" maxLength="4" placeholder="&#9679;&#9679;&#9679;&#9679;"   />
+                                <input onBlur={handleInputChange} defaultValue={cc3} name="cc3" type="text" id="third" className="input col-xs-2" maxLength="4" placeholder="&#9679;&#9679;&#9679;&#9679;"   />
+                                <input onBlur={handleInputChange} defaultValue={cc4} name="cc4" type="text" id="fourth" className="input col-xs-2" maxLength="4" placeholder="&#9679;&#9679;&#9679;&#9679;"   />
                             </div>
                         </div>
 
                         <div className="form-group mb-3 row">
                             <label htmlFor="name">Card Owner</label>
                             <div className="col-sm-12">
-                                <input type="text" id="name" className="input col-5" maxLength="20" placeholder="First Name" />
-                                <input type="text" id="name" className="input col-5" maxLength="20" placeholder="Surname" />
+                                <input onBlur={handleInputChange} defaultValue={firstname} type="text" id="name" className="input col-5" maxLength="20" placeholder="First Name" />
+                                <input onBlur={handleInputChange} defaultValue={surname} type="text" id="name" className="input col-5" maxLength="20" placeholder="Surname" />
                             </div>
                         </div>
 
@@ -81,27 +75,32 @@ const Checkout = () => {
                             <div className="input-item mb-3 col row">
                                 <label htmlFor="expiry">Exp. Date</label>
                                 <div className="col-sm-10">
-                                    <input type="text" className="input col-3" id="expiry" placeholder="09" />
-                                    <input type="text" className="input col-5" id="" placeholder="2022" />
+                                    <input onBlur={handleInputChange} defaultValue={month} type="text" className="input col-3" maxLength="2" id="month" placeholder="02" />
+                                    <input onBlur={handleInputChange} defaultValue={year} type="text" className="input col-5" maxLength="4" id="year" placeholder="2017" />
                                 </div>
                             </div>
                             <div className="input-item mb-3 col row" >
                                 <label htmlFor="csv" >CSV No.</label>
                                 <div className="col-sm-10 ">
-                                    <input type="text " className="input col-6" />
+                                    <input onBlur={handleInputChange} defaultValue={csv} type="text " maxLength="3" className="input col-6" />
                                 </div>
                             </div>
                         </div>
                         <div className="form-group mb-3 row">
                         </div>
 
-                        <div className="text-center">
-                            <p className="total">Total: ${calculateTotal()}</p>
-                            <button className="button" type="submit">PURCHASE</button>
+                        <div className="justify-content-center align-items-center">
+                            <Link to="/success">
+                                <button className="justify-content-center align-items-center button" type="submit">PURCHASE</button>
+                            </Link>
+
                         </div>
                     </form>
-                    <p className="thanks py-5">Thank you for supporting Textos Antiguos !</p>
-                   
+                    {errorMessage && (
+                        <div>
+                            <p className="error-text">{errorMessage}</p>
+                        </div>
+                    )}
                 </article>
                 <div className="part bg"></div>
             </div>
