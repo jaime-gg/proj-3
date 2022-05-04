@@ -409,9 +409,20 @@ tr:last-child td:last-child { border-bottom-right-radius: 10px; } */
 
 input, textarea {
     background-color: var(--light);
-    border: 2px solid var(--dark);
+    border-bottom: 1px solid var(--dark);
     border-radius: 4px;
     margin: 3px;
     padding: 2px;
     text-align: center;
   }
+
+  .total{
+      text-align: left;
+  }
+
+  .thanks{
+      color:var(--primary);
+      text-align: center;
+  }
+
+ 

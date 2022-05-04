@@ -54,10 +54,10 @@ const Checkout = () => {
 
         <div className="wrapper row">
             <div className="container col">
-                <article className=" p-5 d-flex align-items-center flex-column m-auto">
-                    <h1>
-                        Credit Card Details
-                    </h1>
+                <article className=" p-5 d-flex align-content-center flex-column ">
+                    <h2 className="">
+                        Card Details
+                    </h2>
                     <form className="userForm" if="cc-form" autoComplete="off">
                         <div className="cc-form form-group mb-3 row">
                             <label htmlFor="first" >Card Number</label>
@@ -70,7 +70,7 @@ const Checkout = () => {
                         </div>
 
                         <div className="form-group mb-3 row">
-                            <label htmlFor="name">Name On Card</label>
+                            <label htmlFor="name">Card Owner</label>
                             <div className="col-sm-12">
                                 <input type="text" id="name" className="input col-5" maxLength="20" placeholder="First Name" />
                                 <input type="text" id="name" className="input col-5" maxLength="20" placeholder="Surname" />
@@ -81,8 +81,8 @@ const Checkout = () => {
                             <div className="input-item mb-3 col row">
                                 <label htmlFor="expiry">Exp. Date</label>
                                 <div className="col-sm-10">
-                                    <input type="text" className="input col-3" id="expiry" placeholder="02" />
-                                    <input type="text" className="input col-5" id="" placeholder="2017" />
+                                    <input type="text" className="input col-3" id="expiry" placeholder="09" />
+                                    <input type="text" className="input col-5" id="" placeholder="2022" />
                                 </div>
                             </div>
                             <div className="input-item mb-3 col row" >
@@ -95,11 +95,13 @@ const Checkout = () => {
                         <div className="form-group mb-3 row">
                         </div>
 
-                        <div className="justify-content-center align-items-center">
-                            <p>Total:</p>
-                            <button className="justify-content-center align-items-center button" type="submit">PURCHASE</button>
+                        <div className="text-center">
+                            <p className="total">Total: ${calculateTotal()}</p>
+                            <button className="button" type="submit">PURCHASE</button>
                         </div>
                     </form>
+                    <p className="thanks py-5">Thank you for supporting Textos Antiguos !</p>
+                   
                 </article>
                 <div className="part bg"></div>
             </div>
