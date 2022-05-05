@@ -40,3 +40,7 @@ We have been given the task to develop a e-commerce website for a small yet high
 
 - Easy to use admin page for adding new books. 
 - Functional checkout process. 
+
+## Links
+- Deployed App: https://textos-antiguos.herokuapp.com/ 
+- Repo: https://github.com/jaime-gg/textos-antiguos 
